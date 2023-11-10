@@ -37,6 +37,7 @@ yarn global add yalc
 
 ### `Publishing built version to local repository`
 
+<<<<<<< HEAD
 First we need to publish our library in order to be able to deploy it:
 
 ```
@@ -99,23 +100,26 @@ For harnessing functionality of Next native components along with functionalitie
 
   Example:
   ```
-  const LinkWrapper = ({
-    href,
-    children
-  }: {
-    href: string;
-    children: React.ReactNode
-  }) => {
-    return <Link href={href}>{children}</Link>
-  }
+    const LinkWrapper = ({
+      href,
+      children
+    }: {
+      href: string;
+      children: React.ReactNode
+    }) => {
+      return <Link href={href}>{children}</Link>
+    }
    ```  
 2. Wrap consuming app in this provider f.e. in `index.tsx` and pass LinkWrapper as `value` in `ComponentLibraryEnvironmentContext.Provider`
  ```
-        <ComponentLibraryEnvironmentContext.Provider value={{Link: LinkWrapper}}>
-            <PageLayout>         
-              <HomepageContent />
-            </PageLayout>
-        </ComponentLibraryEnvironmentContext.Provider>
+    <ComponentLibraryEnvironmentContext.Provider value={{Link: LinkWrapper}}>
+        <PageLayout>         
+          <HomepageContent />
+        </PageLayout>
+    </ComponentLibraryEnvironmentContext.Provider>
  ```       
 3. This will provide next/link context for `AriaAnchor` component from library, when it's imported and used inside of components wrapped in Provider
-   <AriaAnchor href='/example' >Go to example</AriaAnchor>
+ ```
+    <AriaAnchor href='/example' >Go to example</AriaAnchor>
+ ``` 
+
