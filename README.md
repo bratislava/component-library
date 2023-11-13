@@ -37,7 +37,6 @@ yarn global add yalc
 
 ### `Publishing built version to local repository`
 
-<<<<<<< HEAD
 First we need to publish our library in order to be able to deploy it:
 
 ```
@@ -122,4 +121,3 @@ For harnessing functionality of Next native components along with functionalitie
  ```
     <AriaAnchor href='/example' >Go to example</AriaAnchor>
  ``` 
-
