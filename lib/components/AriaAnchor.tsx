@@ -13,7 +13,7 @@ type AnchorType = {
 const AriaAnchor: React.FC<AnchorType> = forwardRef<HTMLAnchorElement, AnchorType>(
   ({ children, className, forwardedRef, ...restProps }, ref) => {
     const { linkProps } = useLink({ ...restProps }, ref as RefObject<HTMLAnchorElement>)
-
+    
     const { Link } = useContext(EnvironmentContext)
 
     return (
