@@ -1,6 +1,9 @@
 module.exports = {
   extends: ['auto'],
+  plugins: ['bratislava-eslint'],
+
   rules: {
+    'bratislava-eslint/no-html-elements': 'warn',
     /** There is no need to import react after version 17 */
     'react/react-in-jsx-scope': 'off',
     /** Named export is easier to refactor automatically */
@@ -30,5 +33,5 @@ module.exports = {
     'pii/no-phone-number': 'off',
     'xss/no-mixed-html': 'off',
   },
-  ignorePatterns: ['*.config.*', '.eslintrc.js', '/dist'],
+  ignorePatterns: ['*.config.*', '.eslintrc.js', '/dist', '/lib/rules'],
 }

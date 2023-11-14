@@ -8,6 +8,7 @@ const App: React.FC = () => (
   <>
     <Button label="Test button label" onClick={() => {}} />
     <Input />
+    <p>kkt</p>
   </>
 )
 

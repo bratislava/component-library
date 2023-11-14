@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "react-aria": "^3.29.0",
-    "react-aria-components": "^1.0.0-beta.2"
+    "react-aria-components": "^1.0.0-beta.2",
+    "eslint-plugin-bratislava-eslint": "file:lib/plugins/bratislava-eslint"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -33,6 +34,7 @@
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.53.0",
+    "eslint-plugin-bratislava-eslint": "file:lib/plugins/bratislava-eslint",
     "eslint-config-adjunct": "^4.12.2",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.1.0",
