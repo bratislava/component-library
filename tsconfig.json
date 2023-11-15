@@ -21,5 +21,5 @@
     "jsx": "react-jsx" // Specifies the JSX factory function for React.
   },
   "include": ["src", "lib", "vite.config.ts", "package.json"],
-  "exclude": ["/lib/rules/no-html-elements.js", "node_modules"]
+  "exclude": ["node_modules"]
 }

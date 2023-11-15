@@ -4,6 +4,7 @@ module.exports = {
 
   rules: {
     'bratislava-eslint/no-html-elements': 'warn',
+    'bratislava-eslint/string-literal-wrapped-in-typography': 'warn',
     /** There is no need to import react after version 17 */
     'react/react-in-jsx-scope': 'off',
     /** Named export is easier to refactor automatically */
@@ -33,5 +34,5 @@ module.exports = {
     'pii/no-phone-number': 'off',
     'xss/no-mixed-html': 'off',
   },
-  ignorePatterns: ['*.config.*', '.eslintrc.js', '/dist', '/lib/rules'],
+  ignorePatterns: ['*.config.*', '.eslintrc.js', '/dist', '/lib/components/Typography.tsx'],
 }
