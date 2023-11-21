@@ -18,13 +18,18 @@ export default defineConfig({
     rollupOptions: {
       external: [...Object.keys(peerDependencies)],
       output: {
+        globals: {
+          react: 'React',
+        },
         assetFileNames: 'assets/[name][extname]',
-        entryFileNames: '[name].js',
+        //   entryFileNames: '[name].[format].js',
       },
     },
     lib: {
-      entry: resolve(__dirname, 'lib/main.ts'),
-      formats: ['es'],
+      entry: [resolve(__dirname, 'lib/main.ts'), resolve(__dirname, 'lib/tailwind.ts')],
+      name: '@bratislava/component-library',
+      // fileName: `main`,
+      // formats: ['es', 'umd'],
     },
   },
 })

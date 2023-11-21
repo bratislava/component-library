@@ -1,7 +1,18 @@
 {
   "name": "@bratislava/component-library",
   "version": "0.0.1",
-  "main": "dist/main.js",
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.js",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "require": "./dist/main.cjs"
+    },
+    "./tailwind": {
+      "import": "./dist/tailwind.js",
+      "require": "./dist/tailwind.cjs"
+    }
+  },
   "types": "dist/lib/main.d.ts",
   "type": "module",
   "files": [
