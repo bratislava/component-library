@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import themeConfig from "./lib/tailwind"
 
-console.log("dfdfdfdf   ", themeConfig())
-
 export default {
   presets: [themeConfig()],
   jit: true,
