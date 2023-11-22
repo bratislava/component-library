@@ -1,32 +1,36 @@
-import cx from 'classnames'
-import React from 'react'
-import { Tag, TagProps } from 'react-aria-components'
+import React, { useState } from 'react'
+import { Selection, Tag, TagGroup, TagGroupProps, TagList, TagProps } from 'react-aria-components'
+import { twMerge } from 'tailwind-merge'
+
+type ChipColorsType =
+  | 'default'
+  | 'blue'
+  | 'brown'
+  | 'green'
+  | 'purple'
+  | 'red'
+  | 'yellow'
+  | 'disabled'
+  | 'orange'
+
+type ChipSizeType = 'large' | 'medium' | 'small'
+type ChipTagType = {
+  key: string
+  label: string | React.ReactNode
+  size?: ChipSizeType
+  chipStyle?: string
+  color?: ChipColorsType
+}
 
 type ChipProps = {
-  variant?: 'large' | 'medium' | 'small'
-  color?:
-    | 'default'
-    | 'blue'
-    | 'brown'
-    | 'green'
-    | 'purple'
-    | 'red'
-    | 'yellow'
-    | 'disabled'
-    | 'orange'
-  className?: string
+  tags: ChipTagType[]
   children?: React.ReactNode
 }
 
-type ChipType = ChipProps & TagProps
+type ChipType = ChipProps & TagProps & TagGroupProps
+const Chip = ({ tags, children, className, ...props }: ChipType) => {
+  const [selectedTags, setSelectedTags] = useState<Selection>(new Set<string>())
 
-const Chip = ({
-  children,
-  color = 'default',
-  variant = 'large',
-  className,
-  ...props
-}: ChipType) => {
   const sizeVariants = {
     large: 'w-[55px] max-h-[32px] px-1.5 py-3 lg:w-[68px] lg:max-h-[44px] lg:x-2.5 lg:py-4',
     medium: 'w-[47px] max-h-[24px] px-0.5 py-2 lg:w-[55px] lg:max-h-[32px] lg:px-1.5 lg:py-3',
@@ -45,23 +49,33 @@ const Chip = ({
     brown: '',
   }
 
-  const style = cx(
-    'box-border flex cursor-pointer items-center justify-center rounded-lg border-2 text-center transition-all duration-300 ease-in-out hover:border-disabledOrHover hover:bg-disabledOrHover hover:text-defaultBlack',
-    sizeVariants[variant],
-    className || '',
-    colorVariants[color],
-
-    {
-      'text-default-responsive': variant === 'large',
-      'text-size-p-small ': variant === 'medium' || 'small',
-    },
-    'selected:border-none selected:bg-defaultBlack selected:text-white',
-  )
-
   return (
-    <Tag {...props} className={style}>
-      {children}
-    </Tag>
+    <TagGroup
+      aria-label="chip"
+      className={twMerge('h-full w-min', className)}
+      selectedKeys={selectedTags}
+      onSelectionChange={setSelectedTags}
+      {...props}
+    >
+      <TagList className="flex h-full flex-col items-center justify-between">
+        {tags.map(({ key, size = 'large', color = 'default', chipStyle = '', label }) => {
+          return (
+            <Tag
+              key={key}
+              className={twMerge(
+                'box-border flex cursor-pointer items-center justify-center rounded-lg border-2 text-center transition-all duration-300 ease-in-out hover:border-disabledOrHover hover:bg-disabledOrHover hover:text-defaultBlack selected:border-none selected:bg-defaultBlack selected:text-white',
+                size === 'large' ? 'text-default-responsive' : 'text-size-p-small',
+                chipStyle,
+                sizeVariants[size],
+                colorVariants[color],
+              )}
+            >
+              {label}
+            </Tag>
+          )
+        })}
+      </TagList>
+    </TagGroup>
   )
 }
 

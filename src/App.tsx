@@ -5,6 +5,7 @@ import React from 'react'
 
 import { Typography } from '../lib/main'
 import TypographyShowcase from './showcases/TypographyShowcase'
+import ChipShowcase from './showcases/ChipShowcase'
 
 const App: React.FC = () => (
   <div className="bg-gray-100 ">
@@ -16,6 +17,7 @@ const App: React.FC = () => (
       </div>
 
       <TypographyShowcase />
+      <ChipShowcase />
     </div>
   </div>
 )
