@@ -57,9 +57,28 @@ export default {
       'bcl-span-large': getFontSize([20, 32]),
     },
 
-    extend: {},
+    extend: {
+      colors: {
+        font: {
+          DEFAULT: 'rgb(var(--font-color))',
+          contrast: 'rgb(var(--font-contrast-color))',
+        },
+
+        transparent: 'transparent',
+        current: 'currentColor',
+        white: 'rgb(var(--color-gray-0))',
+        defaultBlack: 'rgb(var(--color-gray-700))',
+        main: 'rgb(var(--color-main-700))',
+        environment: 'rgb(var(--color-environment-700))',
+        transport: 'rgb(var(--color-transport-700))',
+        social: 'rgb(var(--color-social-700))',
+        education: 'rgb(var(--color-education-700))',
+        culture: 'rgb(var(--color-culture-700))',
+        disabledOrHover: 'rgb(var(--color-gray-200))',
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-react-aria-components')],
   corePlugins: {
     preflight: false,
   },

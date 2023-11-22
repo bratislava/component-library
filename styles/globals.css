@@ -1,0 +1,20 @@
+@import 'colors.css';
+
+@tailwind base;
+@tailwind components;
+
+@layer base {
+  body {
+    @apply text-font antialiased;
+  }
+}
+
+@layer components {
+  .text-large-responsive {
+    @apply text-size-p-default lg:text-size-p-large;
+  }
+
+  .text-default-responsive {
+    @apply text-size-p-small lg:text-size-p-default;
+  }
+}

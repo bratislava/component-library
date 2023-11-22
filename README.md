@@ -59,7 +59,7 @@ To import our published library into dependent project you can use:
 yalc link @bratislava/component-library
 ```
 
-Now you can use the imported library in your code as such: 
+Now you can use the imported library in your code as such:
 
 ```
 import { Input, Button } from '@bratislava/component-library'
@@ -93,29 +93,35 @@ tsc --p ./tsconfig-build.json && vite build
 
 ## `Using ComponentLibraryEnvironmentContext for native Next components`
 
-For harnessing functionality of Next native components along with functionalities of components of this library, you need to import `ComponentLibraryEnvironmentContext` from '@bratislava/component-library'. It exposes provider. 
+For harnessing functionality of Next native components along with functionalities of components of this library, you need to import `ComponentLibraryEnvironmentContext` from '@bratislava/component-library'. It exposes provider.
 
 1. create wrapper for next/link
 
-  Example:
-  ```
-  const LinkWrapper = ({
-    href,
-    children
-  }: {
-    href: string;
-    children: React.ReactNode
-  }) => {
-    return <Link href={href}>{children}</Link>
-  }
-   ```  
+Example:
+
+```
+const LinkWrapper = ({
+  href,
+  children
+}: {
+  href: string;
+  children: React.ReactNode
+}) => {
+  return <Link href={href}>{children}</Link>
+}
+```
+
 2. Wrap consuming app in this provider f.e. in `index.tsx` and pass LinkWrapper as `value` in `ComponentLibraryEnvironmentContext.Provider`
- ```
-        <ComponentLibraryEnvironmentContext.Provider value={{Link: LinkWrapper}}>
-            <PageLayout>         
-              <HomepageContent />
-            </PageLayout>
-        </ComponentLibraryEnvironmentContext.Provider>
- ```       
+
+```
+       <ComponentLibraryEnvironmentContext.Provider value={{Link: LinkWrapper}}>
+           <PageLayout>
+             <HomepageContent />
+           </PageLayout>
+       </ComponentLibraryEnvironmentContext.Provider>
+```
+
 3. This will provide next/link context for `AriaAnchor` component from library, when it's imported and used inside of components wrapped in Provider
-   <AriaAnchor href='/example' >Go to example</AriaAnchor>
+```
+       <AriaAnchor href='/example' >Go to example</AriaAnchor>
+```
