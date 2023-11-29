@@ -64,6 +64,7 @@ type AlertBase = {
   className?: string
 }
 
+/** Design reference for Alert component: https://www.figma.com/file/17wbd0MDQcMW9NbXl6UPs8/DS-ESBS%2BBK%3A-Component-library?type=design&node-id=10-214&mode=design&t=tqmeXQ42CfF2mbPP-0 */
 const Alert = ({
   solid = false,
   close,
