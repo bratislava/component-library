@@ -6,7 +6,7 @@ const ComponentLibraryEnvironmentContext = createContext<{
     className?: string
     children: React.ReactNode
     ref: React.RefObject<HTMLAnchorElement>
-  }>,
+  }>
   Image: React.FunctionComponent<{
     src: string
     width: number
@@ -15,7 +15,7 @@ const ComponentLibraryEnvironmentContext = createContext<{
   }>
 }>({
   Link: () => null,
-  Image: () => null
+  Image: () => null,
 })
 
 export default ComponentLibraryEnvironmentContext

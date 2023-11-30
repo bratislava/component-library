@@ -13,8 +13,8 @@ module.exports = {
     'arrow-body-style': 'off',
     /** These are exceptions that we use with "__" */
     'no-underscore-dangle': [2],
-    /** Links get confused for secrets */
-    'no-secrets/no-secrets': ['warn', { ignoreContent: '^http' }],
+    /** Turned off due to not having a great experience with enforcing this rule */
+    'no-secrets/no-secrets': 'off',
     /** Too tedious */
     'eslint-comments/disable-enable-pair': 'off',
     /** We specify default props in props decomposition */
