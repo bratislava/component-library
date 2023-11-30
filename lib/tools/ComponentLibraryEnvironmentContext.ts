@@ -5,7 +5,9 @@ const ComponentLibraryEnvironmentContext = createContext<{
     href: string
     className?: string
     children: React.ReactNode
-    ref: React.RefObject<HTMLAnchorElement>
+    ref: React.ForwardedRef<HTMLAnchorElement>
+    passHref?: boolean
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   }>
   Image: React.FunctionComponent<{
     src: string
@@ -13,9 +15,11 @@ const ComponentLibraryEnvironmentContext = createContext<{
     height: number
     alt: string
   }>
+  usePlausible: React.FunctionComponent<{ actionName: string; props: { id: string } }>
 }>({
   Link: () => null,
   Image: () => null,
+  usePlausible: () => null,
 })
 
 export default ComponentLibraryEnvironmentContext

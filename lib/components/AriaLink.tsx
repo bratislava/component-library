@@ -1,20 +1,14 @@
 import React, { forwardRef, RefObject, useContext } from 'react'
 import { useLink } from 'react-aria'
 
-import EnvironmentContext from '../tools/ComponentLibraryEnvironmentContext'
+import ComponentLibraryEnvironmentContext from '../tools/ComponentLibraryEnvironmentContext'
+import { AriaLinkType } from '../types/linkTypes'
 
-type AnchorType = {
-  children: React.ReactNode
-  className?: string
-  forwardedRef?: React.Ref<HTMLAnchorElement>
-  href: string
-}
-
-const AriaAnchor: React.FC<AnchorType> = forwardRef<HTMLAnchorElement, AnchorType>(
+const AriaLinkAnchor: React.FC<AriaLinkType> = forwardRef<HTMLAnchorElement, AriaLinkType>(
   ({ children, className, forwardedRef, ...restProps }, ref) => {
     const { linkProps } = useLink({ ...restProps }, ref as RefObject<HTMLAnchorElement>)
 
-    const { Link } = useContext(EnvironmentContext)
+    const { Link } = useContext(ComponentLibraryEnvironmentContext)
 
     return (
       <Link
@@ -29,4 +23,4 @@ const AriaAnchor: React.FC<AnchorType> = forwardRef<HTMLAnchorElement, AnchorTyp
   },
 )
 
-export default AriaAnchor
+export default AriaLinkAnchor
