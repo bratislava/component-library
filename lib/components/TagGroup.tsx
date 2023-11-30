@@ -60,7 +60,7 @@ const BaTagGroup = ({
               key={key}
               className={twMerge(
                 'flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border-2 border-gray-300 bg-white text-center text-gray-700 transition-all duration-300 ease-in-out hover:border-disabledOrHover hover:bg-disabledOrHover hover:text-defaultBlack selected:border-none selected:bg-defaultBlack selected:text-white',
-                size === 'large' ? 'text-default-responsive' : 'text-size-p-small',
+                size === 'large' ? 'text-default-responsive' : 'text-bcl-p-sm',
                 chipStyle,
                 sizeVariants[size],
                 color && colorVariants[color],
