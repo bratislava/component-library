@@ -1,17 +1,10 @@
-import { Selection, Tag, TagGroup, TagGroupProps, TagList, TagProps } from 'react-aria-components'
+import { Tag, TagGroup, TagGroupProps, TagList } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
-import { ChipProps } from '../types/tagGroupTypes'
+import { BaChipProps, BaTagGroupProps } from '../types/tagGroupTypes'
+import { Typography } from './Typography/Typography'
 
-export type BaTagGroupProps = {
-  setTags: (keys: Selection) => void
-  selectedTags: Selection
-  disabledTags?: string[]
-  defaultSelectedTags?: Iterable<string>
-  tagListClassName?: string
-}
-
-type TagGroupType = ChipProps & TagProps & BaTagGroupProps & TagGroupProps
+type BaTagGroupCompProps = BaChipProps & BaTagGroupProps & TagGroupProps
 
 const BaTagGroup = ({
   tags,
@@ -23,7 +16,7 @@ const BaTagGroup = ({
   tagListClassName,
   defaultSelectedTags,
   ...props
-}: TagGroupType) => {
+}: BaTagGroupCompProps) => {
   const sizeVariants = {
     large:
       'min-w-[55px] max-h-[32px] px-1.5 py-3 lg:min-w-[68px] lg:max-h-[44px] lg:px-4 lg:py-2.5',
@@ -66,7 +59,9 @@ const BaTagGroup = ({
                 color && colorVariants[color],
               )}
             >
-              {label}
+              <Typography type="span" size={size === 'large' ? 'span-large' : undefined}>
+                {label}
+              </Typography>
             </Tag>
           )
         })}

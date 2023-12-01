@@ -11,10 +11,10 @@
 
 @layer components {
   .text-large-responsive {
-    @apply text-size-p-default lg:text-size-p-large;
+    @apply text-bcl-p-base lg:text-bcl-p-md;
   }
 
   .text-default-responsive {
-    @apply text-size-p-small lg:text-size-p-default;
+    @apply text-bcl-p-sm lg:text-bcl-p-base;
   }
 }
