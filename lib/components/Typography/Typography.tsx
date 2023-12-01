@@ -10,7 +10,7 @@ type SupportedFontWeightType = 'light' | 'normal' | 'medium' | 'semibold'
 type SupportedElementType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
 
 type SupportedParagraphSizeType = 'p-small' | 'p-large'
-type SupportedSpanSizeType = 'span-large'
+type SupportedSpanSizeType = 'span-large' | 'span-base-normal' | 'span-small-normal'
 type SupportedHeadingSizeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'h1-hero' | 'h1-form'
 
 /**

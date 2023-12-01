@@ -1,20 +1,9 @@
 @import 'colors.css';
 
 @tailwind base;
-@tailwind components;
 
 @layer base {
   body {
     @apply text-font antialiased;
-  }
-}
-
-@layer components {
-  .text-large-responsive {
-    @apply text-bcl-p-base lg:text-bcl-p-md;
-  }
-
-  .text-default-responsive {
-    @apply text-bcl-p-sm lg:text-bcl-p-base;
   }
 }

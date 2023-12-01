@@ -55,6 +55,7 @@ export default {
       // span
       'bcl-span-base': getFontSize([16, 24]),
       'bcl-span-large': getFontSize([20, 32]),
+      'bcl-span-small': getFontSize([14, 20]),
     },
 
     extend: {
