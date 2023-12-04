@@ -1,5 +1,6 @@
 import 'tailwindcss/tailwind.css'
 
+import cx from 'classnames'
 import { Children, HTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -59,11 +60,13 @@ export const Typography = <T extends SupportedElementType>({
 
   return (
     <CustomElement
-      className={twMerge(
-        usedSize
-          ? typographyElementDefaultStyles[usedSize]
-          : typographyElementDefaultStyles[type as SupportedElementType],
-        `[text-wrap:balance] ${usedFontWeight} font-sans`,
+      className={cx(
+        twMerge(
+          usedSize
+            ? typographyElementDefaultStyles[usedSize]
+            : typographyElementDefaultStyles[type as SupportedElementType],
+          `[text-wrap:balance] ${usedFontWeight} font-sans`,
+        ),
         className,
       )}
       {...otherAttributes}
