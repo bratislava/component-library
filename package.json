@@ -1,6 +1,6 @@
 {
   "name": "@bratislava/component-library",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "dist/main.js",
   "types": "dist/lib/main.d.ts",
   "type": "module",
