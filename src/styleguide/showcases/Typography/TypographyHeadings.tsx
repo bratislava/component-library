@@ -1,6 +1,6 @@
-import { Typography } from '../../lib/main'
-import SectionGroup from './SectionGroup'
-import SectionRow from './SectionRow'
+import { Typography } from '@lib/main'
+import { Stack } from '@src/styleguide/Stack'
+import { Wrapper } from '@src/styleguide/Wrapper'
 
 /**
  * Showcase component for Typography heading usage.
@@ -26,44 +26,35 @@ import SectionRow from './SectionRow'
 
 const TypographyHeadings = () => {
   return (
-    <SectionGroup>
-      <SectionRow>
+    <Wrapper direction="column" title="Headings - Typography component">
+      <Stack direction="column">
         <Typography type="h1" size="h1-hero">
           H1 Hero heading default
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h1">H1 heading default</Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h1" size="h1-form">
           H1 heading form default
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h2">H2 heading</Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3">H3 heading</Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h4">H4 heading</Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h5">H5 heading</Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h6" size="h6">
           H6 heading
         </Typography>
-      </SectionRow>
 
-      <SectionRow>
         <Typography type="h1" size="h3">
           H1 heading - size h3
         </Typography>
-      </SectionRow>
-    </SectionGroup>
+      </Stack>
+    </Wrapper>
   )
 }
 

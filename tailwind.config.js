@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 const toRem = (px) => `${px / 16}rem`
 const getFontSize = (size) => [toRem(size[0]), toRem(size[1])]
@@ -10,8 +10,9 @@ export default {
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
     './lib/**/*.{js,ts,jsx,tsx}',
-    './node_modules/vite-component-library-test/**/*.js',
+    './node_modules/@bratislava/component-library/**/*.js',
   ],
+
   theme: {
     fontFamily: {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
@@ -38,7 +39,7 @@ export default {
 
       // headings responsive
       'bcl-h1-hero-r': getFontSize([32, 40]),
-      'bcl-h1-form-r': getFontSize([24, 32]), 
+      'bcl-h1-form-r': getFontSize([24, 32]),
       'bcl-h1-r': getFontSize([28, 36]),
       'bcl-h2-r': getFontSize([24, 32]),
       'bcl-h3-r': getFontSize([20, 28]),
@@ -57,7 +58,11 @@ export default {
       'bcl-span-large': getFontSize([20, 32]),
     },
 
-    extend: {},
+    extend: {
+      colors: {
+        'background-color': 'rgb(229, 229, 229)',
+      },
+    },
   },
   plugins: [],
   corePlugins: {
