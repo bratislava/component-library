@@ -1,6 +1,6 @@
-import { Typography } from '../../lib/main'
-import SectionGroup from './SectionGroup'
-import SectionRow from './SectionRow'
+import { Typography } from '@lib/main'
+import { Stack } from '@src/styleguide/Stack'
+import { Wrapper } from '@src/styleguide/Wrapper'
 
 /**
  * Showcase component for Typography paragraph usage.
@@ -29,8 +29,8 @@ import SectionRow from './SectionRow'
 
 const TypographyParagraphs = () => {
   return (
-    <SectionGroup>
-      <SectionRow>
+    <Wrapper direction="column" title="Paragraphs - Typography component">
+      <Stack direction="column">
         <Typography type="h3" size="h4">
           Default paragraph - light
         </Typography>
@@ -46,9 +46,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
 
-      <SectionRow>
         <Typography type="h3" size="h4">
           Default paragraph - normal
         </Typography>
@@ -64,8 +62,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3" size="h4">
           Default paragraph - medium
         </Typography>
@@ -81,8 +78,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3" size="h4">
           Default paragraph - semibold
         </Typography>
@@ -98,11 +94,11 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
+      </Stack>
 
       {/* SMALL PARAGRAPH  */}
 
-      <SectionRow>
+      <Stack direction="column">
         <Typography type="h3" size="h4">
           Small paragraph - light
         </Typography>
@@ -118,8 +114,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3" size="h4">
           Small paragraph - normal
         </Typography>
@@ -135,8 +130,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3" size="h4">
           Small paragraph - medium
         </Typography>
@@ -152,9 +146,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
 
-      <SectionRow>
         <Typography type="h3" size="h4">
           Small paragraph - semibold
         </Typography>
@@ -170,9 +162,9 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
+      </Stack>
 
-      <SectionRow>
+      <Stack direction="column">
         <Typography type="h3" size="h4">
           Large paragraph - light
         </Typography>
@@ -188,8 +180,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3" size="h4">
           Large paragraph - normal
         </Typography>
@@ -205,8 +196,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3" size="h4">
           Large paragraph - medium
         </Typography>
@@ -222,8 +212,7 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3" size="h4">
           Large paragraph - semibold
         </Typography>
@@ -239,8 +228,8 @@ const TypographyParagraphs = () => {
             Hypertext link
           </a>
         </Typography>
-      </SectionRow>
-    </SectionGroup>
+      </Stack>
+    </Wrapper>
   )
 }
 

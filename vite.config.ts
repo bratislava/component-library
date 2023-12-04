@@ -12,6 +12,15 @@ export default defineConfig({
       jsx: 'automatic',
     },
   },
+  resolve: {
+    alias: {
+      '@lib': resolve(__dirname, './lib'),
+      '@components': resolve(__dirname, './lib/components'),
+      '@tools': resolve(__dirname, './lib/tools'),
+      '@src': resolve(__dirname, './src'),
+      '@showcases': resolve(__dirname, './src/styleguide/showcases'),
+    },
+  },
   plugins: [react(), dts({ include: ['lib'] })],
   build: {
     copyPublicDir: false,

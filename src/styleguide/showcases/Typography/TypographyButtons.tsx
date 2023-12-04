@@ -1,6 +1,6 @@
-import { Typography } from '../../lib/main'
-import SectionGroup from './SectionGroup'
-import SectionRow from './SectionRow'
+import { Typography } from '@lib/main'
+import { Stack } from '@src/styleguide/Stack'
+import { Wrapper } from '@src/styleguide/Wrapper'
 
 /**
  * Showcase component for Typography span usage.
@@ -28,16 +28,15 @@ import SectionRow from './SectionRow'
  * */
 const TypographyButtons = () => {
   return (
-    <SectionGroup>
-      <SectionRow>
+    <Wrapper direction="column" title="Buttons - Typography component">
+      <Stack direction="column">
         <Typography type="h3" size="h4">
           Button text - normal
         </Typography>
         <button type="button">
           <Typography type="span">Click me</Typography>
         </button>
-      </SectionRow>
-      <SectionRow>
+
         <Typography type="h3" size="h4">
           Button text - large
         </Typography>
@@ -47,8 +46,8 @@ const TypographyButtons = () => {
             Click me
           </Typography>
         </button>
-      </SectionRow>
-    </SectionGroup>
+      </Stack>
+    </Wrapper>
   )
 }
 

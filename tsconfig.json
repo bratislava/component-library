@@ -18,7 +18,17 @@
     "allowImportingTsExtensions": true, // Allows importing TypeScript files directly.
     "isolatedModules": true, // Treats each file as a separate module.
     "noEmit": true, // Disable emitting output files.
-    "jsx": "react-jsx" // Specifies the JSX factory function for React.
+    "jsx": "react-jsx", // Specifies the JSX factory function for React.
+
+    /** Specifing path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@components/*": ["lib/components/*"],
+      "@tools/*": ["lib/tools/*"],
+      "@src/*": ["src/*"],
+      "@showcases/*": ["src/styleguide/showcases/*"]
+    }
   },
   "include": ["src", "lib", "vite.config.ts", "package.json"],
   "exclude": ["node_modules"]

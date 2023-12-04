@@ -1,20 +1,20 @@
+import { ComponentLibraryEnvironmentContext } from '@lib/main'
 import React, { forwardRef, RefObject, useContext } from 'react'
 import { useLink } from 'react-aria'
 
-import EnvironmentContext from '../tools/ComponentLibraryEnvironmentContext'
-
-type AnchorType = {
+type Anchor = {
   children: React.ReactNode
   className?: string
   forwardedRef?: React.Ref<HTMLAnchorElement>
   href: string
 }
 
-const AriaAnchor: React.FC<AnchorType> = forwardRef<HTMLAnchorElement, AnchorType>(
+/** Keepign this as an example component for environemnt context usage */
+const AriaAnchor = forwardRef<HTMLAnchorElement, Anchor>(
   ({ children, className, forwardedRef, ...restProps }, ref) => {
     const { linkProps } = useLink({ ...restProps }, ref as RefObject<HTMLAnchorElement>)
 
-    const { Link } = useContext(EnvironmentContext)
+    const { Link } = useContext(ComponentLibraryEnvironmentContext)
 
     return (
       <Link
