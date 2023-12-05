@@ -1,9 +1,9 @@
-export type LinkPlausibleType = { eventName: string; props: LinkPlausibleProps }
-export type LinkPlausibleProps = { id: string }
+export type LinkPlausibleProps = { eventName: string; props: PlausibleProps }
+export type PlausibleProps = { id: string }
 
 export type LinkProps = {
   variant?: 'unstyled' | 'underlineOnHover' | 'underlined' | 'underlined-medium'
-  plausibleProps?: LinkPlausibleType
+  plausibleProps?: LinkPlausibleProps
   stretched?: boolean
   onClick?: () => null
 }

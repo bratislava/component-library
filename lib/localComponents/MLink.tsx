@@ -1,27 +1,27 @@
-import { forwardRef, useContext } from 'react'
+import { forwardRef, useContext, useImperativeHandle, useRef } from 'react'
 import { useLink } from 'react-aria'
 import { twMerge } from 'tailwind-merge'
 
 import ComponentLibraryEnvironmentContext from '../tools/ComponentLibraryEnvironmentContext'
-import { AriaLinkType, LinkPlausibleProps } from '../types/linkTypes'
+import { AriaLinkType } from '../types/linkTypes'
 
 export type LinkProps = {
   variant?: 'unstyled' | 'underlineOnHover' | 'underlined' | 'underlined-medium'
-  plausibleProps?: { eventName: string; props: LinkPlausibleProps }
+  // plausibleProps?: { eventName: string; props: LinkPlausibleProps }
   stretched?: boolean
+  onClick?: (plausibleProps: { eventName: string; props: { id: string } }) => void
 }
 
 type MLinkProps = LinkProps & AriaLinkType
 
-const MLink = forwardRef<HTMLAnchorElement, MLinkProps>(
-  (
-    { href, children, className, variant = 'unstyled', stretched, plausibleProps, ...restProps },
-    ref,
-  ) => {
-    const { linkProps } = useLink({ ...restProps }, ref as RefObject<HTMLAnchorElement>)
-    const { Link, usePlausible } = useContext(ComponentLibraryEnvironmentContext)
+const MLink = forwardRef<HTMLAnchorElement | undefined, MLinkProps>(
+  ({ href, children, className, variant = 'unstyled', stretched, onClick, ...rest }, ref) => {
+    const { linkProps } = useLink({ href, ...rest }, ref as React.RefObject<HTMLAnchorElement>)
+    const { Link } = useContext(ComponentLibraryEnvironmentContext)
 
-    const plausible = usePlausible
+    const anchorRef = useRef<HTMLAnchorElement>(null)
+    // We are using useImperativeHandle here to expose anchorRef but not necessarily force the user to pass it if not needed from outside
+    useImperativeHandle(ref, () => anchorRef?.current ?? undefined)
 
     const styles = twMerge(
       'underline-offset-2',
@@ -37,15 +37,7 @@ const MLink = forwardRef<HTMLAnchorElement, MLinkProps>(
     )
 
     return (
-      <Link
-        {...linkProps}
-        href={href}
-        passHref
-        ref={ref}
-        {...restProps}
-        className={styles}
-        onClick={() => plausibleProps && plausible('Link click', { props: plausibleProps })}
-      >
+      <Link {...linkProps} href={href} passHref ref={anchorRef} {...rest} className={styles}>
         {children}
       </Link>
     )

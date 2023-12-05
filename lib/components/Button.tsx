@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/cognitive-complexity */
 /* eslint-disable sonarjs/no-duplicate-string */
-import { forwardRef, PropsWithChildren, ReactNode, RefObject } from 'react'
+import { forwardRef, PropsWithChildren, ReactNode, RefObject, useContext } from 'react'
 import { AriaButtonProps } from 'react-aria'
 import { Button as RACButton, ButtonProps as RACButtonProps } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
@@ -8,7 +8,8 @@ import { twMerge } from 'tailwind-merge'
 import { ArrowRightIcon, ExportIcon } from '../assets'
 import MLink from '../localComponents/MLink'
 import Spinner from '../localComponents/Spinner'
-import { LinkPlausibleProps } from '../types/linkTypes'
+import ComponentLibraryEnvironmentContext from '../tools/ComponentLibraryEnvironmentContext'
+import { PlausibleProps } from '../types/linkTypes'
 
 type ButtonOrIconButton =
   | {
@@ -62,7 +63,7 @@ export type AnchorProps = Omit<AriaButtonProps<'a'>, 'children'> &
   ButtonBase & {
     stretched?: boolean
     hasLinkIcon?: boolean
-    plausibleProps?: LinkPlausibleProps
+    plausibleProps?: PlausibleProps
   }
 
 export type PolymorphicProps = ButtonProps | AnchorProps
@@ -100,6 +101,14 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, PolymorphicProp
     const isIconWrappedVariant =
       variant === 'icon-wrapped' || variant === 'icon-wrapped-negative-margin'
     const isIconButton = Boolean(icon)
+
+    const { plausible } = useContext(ComponentLibraryEnvironmentContext)
+
+    const handleLinkClick = () => {
+      if (plausible && plausibleProps) {
+        plausible('Link Clicked', { id: plausibleProps?.id })
+      }
+    }
 
     /* TODO
      *   - examine why `text-button` interferes with `text-[color]` and therefore is sometimes ignored
@@ -218,7 +227,15 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, PolymorphicProp
       const linkIcon = hasLinkIcon ? isExternal ? <ExportIcon /> : <ArrowRightIcon /> : null
 
       return (
-        <MLink href={href} ref={ref as RefObject<HTMLAnchorElement>} className={styles} {...rest}>
+        <MLink
+          href={href}
+          ref={ref as RefObject<HTMLAnchorElement>}
+          onClick={() => {
+            handleLinkClick()
+          }}
+          className={styles}
+          {...rest}
+        >
           {startIcon}
           {icon ?? children}
           {linkIcon ?? endIcon}
