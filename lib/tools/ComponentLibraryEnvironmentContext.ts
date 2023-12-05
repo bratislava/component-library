@@ -5,7 +5,8 @@ const ComponentLibraryEnvironmentContext = createContext<{
     href: string
     className?: string
     children: React.ReactNode
-    ref: React.RefObject<HTMLAnchorElement>
+    ref: React.ForwardedRef<HTMLAnchorElement>
+    passHref?: boolean
   }>
   Image: React.FunctionComponent<{
     src: string
@@ -13,9 +14,11 @@ const ComponentLibraryEnvironmentContext = createContext<{
     height: number
     alt: string
   }>
+  plausible: (eventName: string, props: { id: string }) => void
 }>({
   Link: () => null,
   Image: () => null,
+  plausible: () => null,
 })
 
 export default ComponentLibraryEnvironmentContext
