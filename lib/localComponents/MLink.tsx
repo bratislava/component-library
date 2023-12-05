@@ -1,4 +1,5 @@
-import { forwardRef, useContext, useImperativeHandle, useRef } from 'react'
+import cx from 'classnames'
+import { forwardRef, useContext } from 'react'
 import { useLink } from 'react-aria'
 import { twMerge } from 'tailwind-merge'
 
@@ -14,30 +15,26 @@ export type LinkProps = {
 
 type MLinkProps = LinkProps & AriaLinkType
 
-const MLink = forwardRef<HTMLAnchorElement | undefined, MLinkProps>(
+const MLink = forwardRef<HTMLAnchorElement, MLinkProps>(
   ({ href, children, className, variant = 'unstyled', stretched, onClick, ...rest }, ref) => {
     const { linkProps } = useLink({ href, ...rest }, ref as React.RefObject<HTMLAnchorElement>)
     const { Link } = useContext(ComponentLibraryEnvironmentContext)
 
-    const anchorRef = useRef<HTMLAnchorElement>(null)
-    // We are using useImperativeHandle here to expose anchorRef but not necessarily force the user to pass it if not needed from outside
-    useImperativeHandle(ref, () => anchorRef?.current ?? undefined)
-
     const styles = twMerge(
-      'underline-offset-2',
-      variant === 'underlineOnHover' && 'underline lg:no-underline lg:hover:underline',
-      // TODO solve hover color, currently we use opacity, so text can have any color, but it can cause some design or accessibility issues
-      (variant === 'underlined' || variant === 'underlined-medium') && 'underline hover:opacity-80',
-      variant === 'underlined-medium' && 'font-medium',
-      stretched && 'after:absolute after:inset-0',
+      cx('underline-offset-2', {
+        'underline lg:no-underline lg:hover:underline': variant === 'underlineOnHover',
+        // TODO solve hover color, currently we use opacity, so text can have any color, but it can cause some design or accessibility issues
+        'underline hover:opacity-80': variant === 'underlined' || variant === 'underlined-medium',
+        'font-medium': variant === 'underlined-medium',
 
-      // https://github.com/tailwindlabs/tailwindcss/issues/1041#issuecomment-957425345
-
+        // https://github.com/tailwindlabs/tailwindcss/issues/1041#issuecomment-957425345
+        'after:absolute after:inset-0': stretched,
+      }),
       className,
     )
 
     return (
-      <Link {...linkProps} href={href} passHref ref={anchorRef} {...rest} className={styles}>
+      <Link {...linkProps} href={href} passHref ref={ref} {...rest} className={styles}>
         {children}
       </Link>
     )

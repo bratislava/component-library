@@ -1,0 +1,9 @@
+@import 'colors.css';
+
+@tailwind base;
+
+@layer base {
+  body {
+    @apply text-font antialiased;
+  }
+}
