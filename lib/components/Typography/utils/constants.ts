@@ -25,4 +25,6 @@ export const typographyElementDefaultStyles = {
   // spans
   span: 'text-bcl-span-base font-semibold lg:text-bcl-span-base',
   'span-large': 'text-bcl-span-large font-semibold lg:text-bcl-span-large',
+  'span-base-normal': 'text-bcl-span-small font-medium lg:text-bcl-span-base',
+  'span-small-normal': 'text-bcl-span-small font-medium lg:text-bcl-span-small',
 }

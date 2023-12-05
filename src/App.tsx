@@ -1,8 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import 'tailwindcss/tailwind.css'
 
 import React from 'react'
 
 import { Typography } from '../lib/main'
+import ChipShowcase from './showcases/ChipShowcase'
 import TypographyShowcase from './showcases/TypographyShowcase'
 
 const App: React.FC = () => (
@@ -15,6 +17,7 @@ const App: React.FC = () => (
       </div>
 
       <TypographyShowcase />
+      <ChipShowcase />
     </div>
   </div>
 )
