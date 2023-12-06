@@ -1,7 +1,12 @@
 import { ArrowRightIcon, CalendarIcon, EditIcon, SearchIcon } from '../../lib/assets'
 import Button from '../../lib/components/Button'
+import { ComponentLibraryEnvironmentContext } from '../../lib/main'
 import { Stack } from './Stack'
 import { Wrapper } from './Wrapper'
+
+const LinkWrapper = ({ href, children }: { href: string; children: React.ReactNode }) => {
+  return <a href={href}>{children}</a>
+}
 
 const ButtonStacks = ({ variant }: { variant: 'category' | 'black' | 'negative' }) => (
   <>
@@ -100,6 +105,8 @@ const ButtonStacks = ({ variant }: { variant: 'category' | 'black' | 'negative' 
           size="small"
           isDisabled
         />
+        {/* </Stack> */}
+        {/* <Stack> */}
         <Button variant={`${variant}-outline`} startIcon={<SearchIcon />}>
           Button
         </Button>
@@ -228,6 +235,50 @@ const ButtonShowCase = () => {
       <ButtonStacks variant="category" />
       <ButtonStacks variant="black" />
       <ButtonStacks variant="negative" />
+      <ComponentLibraryEnvironmentContext.Provider value={{ Link: LinkWrapper }}>
+        <Stack>
+          <Button variant="category-link" href="#" hasLinkIcon>
+            Link
+          </Button>
+          <Button variant="category-link" href="#" size="small" hasLinkIcon>
+            Link
+          </Button>
+          <Button variant="category-link" href="https://bratislava.sk" hasLinkIcon>
+            External link
+          </Button>
+          <Button variant="category-link" href="https://bratislava.sk" size="small" hasLinkIcon>
+            External link
+          </Button>
+        </Stack>
+        <Stack>
+          <Button variant="black-link" href="#" hasLinkIcon>
+            Link
+          </Button>
+          <Button variant="black-link" href="#" size="small" hasLinkIcon>
+            Link
+          </Button>
+          <Button variant="black-link" href="https://bratislava.sk" hasLinkIcon>
+            External link
+          </Button>
+          <Button variant="black-link" href="https://bratislava.sk" size="small" hasLinkIcon>
+            External link
+          </Button>
+        </Stack>
+        <Stack>
+          <Button variant="category-solid" href="#" hasLinkIcon>
+            Link
+          </Button>
+          <Button variant="category-solid" href="#" size="small" hasLinkIcon>
+            Link
+          </Button>
+          <Button variant="category-solid" href="https://bratislava.sk" hasLinkIcon>
+            External link
+          </Button>
+          <Button variant="category-solid" href="https://bratislava.sk" size="small" hasLinkIcon>
+            External link
+          </Button>
+        </Stack>
+      </ComponentLibraryEnvironmentContext.Provider>
       <Stack>
         <Button variant="category-solid" isLoading>
           This is loading button

@@ -8,7 +8,6 @@ import { AriaLinkType } from '../types/linkTypes'
 
 export type LinkProps = {
   variant?: 'unstyled' | 'underlineOnHover' | 'underlined' | 'underlined-medium'
-  // plausibleProps?: { eventName: string; props: LinkPlausibleProps }
   stretched?: boolean
   onClick?: (plausibleProps: { eventName: string; props: { id: string } }) => void
 }
@@ -33,11 +32,15 @@ const MLink = forwardRef<HTMLAnchorElement, MLinkProps>(
       className,
     )
 
-    return (
-      <Link {...linkProps} href={href} passHref ref={ref} {...rest} className={styles}>
-        {children}
-      </Link>
-    )
+    if (Link) {
+      return (
+        <Link {...linkProps} href={href} passHref ref={ref} {...rest} className={styles}>
+          {children}
+        </Link>
+      )
+    }
+
+    return null
   },
 )
 

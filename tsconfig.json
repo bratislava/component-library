@@ -22,5 +22,4 @@
   },
   "include": ["src", "lib", "vite.config.ts", "package.json"],
   "exclude": ["node_modules"],
-  "types": ["vite-plugin-svgr/client"]
 }
