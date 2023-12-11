@@ -55,8 +55,8 @@ type ButtonBase = {
   isLoading?: boolean
   isLoadingText?: string
   stretched?: boolean
-  onPointerEnter?: (event: React.PointerEvent) => void
-  onPointerLeaver?: (event: React.PointerEvent) => void
+  onPressStart?: (event: React.PointerEvent) => void
+  onPressEnd?: (event: React.PointerEvent) => void
 } & ButtonOrIconButton
 
 export type ButtonProps = Omit<RACButtonProps, 'className' | 'style'> &

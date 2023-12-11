@@ -2,10 +2,9 @@ const DefaultLink: React.FunctionComponent<{
   href: string
   className?: string
   children: React.ReactNode
-  ref: React.ForwardedRef<HTMLAnchorElement>
   passHref?: boolean
-}> = ({ href, children, className }) => (
-  <a href={href} className={className}>
+}> = ({ href, children, className, ...rest }) => (
+  <a href={href} className={className} {...rest}>
     {children}
   </a>
 )
@@ -15,6 +14,8 @@ const DefaultImage: React.FunctionComponent<{
   width: number
   height: number
   alt: string
-}> = ({ src, width, height, alt }) => <img src={src} width={width} height={height} alt={alt} />
+}> = ({ src, width, height, alt, ...rest }) => (
+  <img src={src} width={width} height={height} alt={alt} {...rest} />
+)
 
 export { DefaultImage, DefaultLink }

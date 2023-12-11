@@ -4,8 +4,20 @@ import { ComponentLibraryEnvironmentContext } from '../../lib/main'
 import { Stack } from './Stack'
 import { Wrapper } from './Wrapper'
 
-const LinkWrapper = ({ href, children }: { href: string; children: React.ReactNode }) => {
-  return <a href={href}>{children}</a>
+const LinkWrapper = ({
+  href,
+  children,
+  className,
+}: {
+  href: string
+  children: React.ReactNode
+  className?: string
+}) => {
+  return (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  )
 }
 
 const ButtonStacks = ({ variant }: { variant: 'category' | 'black' | 'negative' }) => (
@@ -105,8 +117,6 @@ const ButtonStacks = ({ variant }: { variant: 'category' | 'black' | 'negative' 
           size="small"
           isDisabled
         />
-        {/* </Stack> */}
-        {/* <Stack> */}
         <Button variant={`${variant}-outline`} startIcon={<SearchIcon />}>
           Button
         </Button>

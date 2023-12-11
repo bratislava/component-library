@@ -7,7 +7,6 @@ const ComponentLibraryEnvironmentContext = createContext<{
     href: string
     className?: string
     children: React.ReactNode
-    ref: React.ForwardedRef<HTMLAnchorElement>
     passHref?: boolean
   }>
   Image?: React.FunctionComponent<{
