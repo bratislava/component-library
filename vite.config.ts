@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
 import { peerDependencies } from './package.json'
-// import plugin from '@vitejs/plugin-react'
+import svgr from "vite-plugin-svgr"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,7 +12,7 @@ export default defineConfig({
       jsx: 'automatic',
     },
   },
-  plugins: [react(), dts({ include: ['lib'] })],
+  plugins: [react(), dts({ include: ['lib'] }), svgr()],
   build: {
     copyPublicDir: false,
     rollupOptions: {
@@ -26,5 +26,5 @@ export default defineConfig({
       entry: resolve(__dirname, 'lib/main.ts'),
       formats: ['es'],
     },
-  },
+  }
 })

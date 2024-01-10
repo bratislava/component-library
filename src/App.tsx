@@ -1,8 +1,10 @@
 import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
 
 import React from 'react'
 
 import { Typography } from '../lib/main'
+import ButtonShowCase from './showcases/ButtonShowcase'
 import TypographyShowcase from './showcases/TypographyShowcase'
 
 const App: React.FC = () => (
@@ -15,6 +17,7 @@ const App: React.FC = () => (
       </div>
 
       <TypographyShowcase />
+      <ButtonShowCase />
     </div>
   </div>
 )
