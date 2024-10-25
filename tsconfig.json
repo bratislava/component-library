@@ -20,6 +20,6 @@
     "noEmit": true, // Disable emitting output files.
     "jsx": "react-jsx" // Specifies the JSX factory function for React.
   },
-  "include": ["src", "lib", "vite.config.ts", "package.json"],
+  "include": ["src", "lib", "vite.config.ts", "package.json", "tailwind.config.ts"],
   "exclude": ["node_modules"]
 }
