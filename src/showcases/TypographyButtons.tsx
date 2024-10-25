@@ -6,17 +6,12 @@ import SectionRow from './SectionRow'
  * Showcase component for Typography span usage.
  *
  * The main use for this type is inside Buttons, but it can also be used anywhere we would otherwise use `<span>`.
- * To define a span, use `type="span"`.
- *
- * Span supports these props:
- * @param size - (optional) Sets "font-size", with default as "font-size: 16px".
- *   Available options for size are:
- *   - "span-large" (font-size: 20px)
- *
+ * To define a span, use `variant="span"`.
+
  * @example
  * ```tsx
  *  <button type="button">
- *    <Typography type="span" size="span-large">Click me</Typography>
+ *    <Typography variant="span">Click me</Typography>
  *  </button>
  * ```
  *
@@ -30,22 +25,16 @@ const TypographyButtons = () => {
   return (
     <SectionGroup>
       <SectionRow>
-        <Typography type="h3" size="h4">
-          Button text - normal
-        </Typography>
+        <Typography variant="h3">Button text - normal</Typography>
         <button type="button">
-          <Typography type="span">Click me</Typography>
+          <Typography variant="button-default">Click me</Typography>
         </button>
       </SectionRow>
       <SectionRow>
-        <Typography type="h3" size="h4">
-          Button text - large
-        </Typography>
+        <Typography variant="h3">Button text - large</Typography>
 
         <button type="button">
-          <Typography type="span" size="span-large">
-            Click me
-          </Typography>
+          <Typography variant="button-large">Click me</Typography>
         </button>
       </SectionRow>
     </SectionGroup>

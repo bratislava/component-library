@@ -8,22 +8,22 @@ import TypographyParagraphs from './TypographyParagraphs'
 /**
  * Showcase page for the Typography component.
  *
- * The Typography component has three types: heading (h1 ... h6), paragraph (p), or span.
- * Each type can be selected by setting the "type" prop.
+ * The Typography component has three variant: heading (h1 ... h6), paragraph (p).
+ * Each variant can be selected by setting the "variant" prop.
  *
  * @component
  */
 const TypographyShowcase: React.FC = () => (
   <>
-    <Typography type="h1">Typography component</Typography>
+    <Typography variant="h1">Typography component</Typography>
 
-    <Typography type="h2">Headings</Typography>
+    <Typography variant="h2">Headings</Typography>
     <TypographyHeadings />
 
-    <Typography type="h2">Paragraphs</Typography>
+    <Typography variant="h2">Paragraphs</Typography>
     <TypographyParagraphs />
 
-    <Typography type="h2">Buttons</Typography>
+    <Typography variant="h2">Buttons</Typography>
     <TypographyButtons />
   </>
 )
