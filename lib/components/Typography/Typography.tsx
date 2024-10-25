@@ -1,10 +1,7 @@
-import slugify from '@sindresorhus/slugify'
 import { createElement, ElementType, forwardRef, ReactNode } from 'react'
 
 import cn from '../../tools/cn'
 import { normalizeSkText } from './utils/normalizeSkText'
-
-const headingLevels = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 
 export type TypographyProps = {
   children: ReactNode
@@ -61,7 +58,6 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
     )[variant]
 
     const classes = cn(
-      'text-content-primary',
       'whitespace-pre-wrap', // TODO revisit if we want to apply it on all text
       'break-words', // TODO revisit if we want to apply it on all text
       {
@@ -85,25 +81,11 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     const childrenNormalised = typeof children === 'string' ? normalizeSkText(children) : children
 
-    const isHeading =
-      headingLevels.has(variantElement) || !!(as && headingLevels.has(as.toString()))
-
-    const commonElementOptions = {
+    const elementOptions = {
       ...rest,
       ref: forwardedRef,
       className: classes,
     }
-
-    const generateId = children ? slugify(children.toString()) : ''
-
-    const elementOptions = isHeading
-      ? {
-          ...commonElementOptions,
-          id: generateId,
-        }
-      : {
-          ...commonElementOptions,
-        }
 
     return createElement(as || variantElement, elementOptions, childrenNormalised)
   },
