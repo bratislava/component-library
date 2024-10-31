@@ -61,20 +61,6 @@
   --color-warning-100: 252 242 230; /*#FCF2E6*/
   --color-warning-50: 253 248 242; /*#FDF8F2*/
 
-  /* OLO waste categories */
-  --color-waste-blue: 0 94 184; /*#005EB8*/
-  --color-waste-yellow: 254 219 0; /*#FEDB00*/
-  --color-waste-green: 0 156 79; /*#009C4F*/
-  --color-waste-red: 252 76 2; /*#FC4C02*/
-  --color-waste-red-bratislava: 215 25 32; /*#D71920*/
-  --color-waste-brown: 116 79 40; /*#744F28*/
-  --color-waste-brown-dark: 57 49 42; /*#392A31*/
-
-  /* OLO badge categories */
-  --color-badge-red: 255 220 195; /*#FFDCC3*/
-  --color-badge-green: 214 239 227; /*#D6EFE3*/
-  --color-badge-blue: 214 229 244; /*#D6E5F4*/
-
   /*--error-color: var(--color-negative-700);*/
 
   --token-background-primary: var(--color-grey-0);
@@ -116,21 +102,6 @@
   --token-warning-background-default: var(--color-warning-700);
   --token-warning-soft-background-default: var(--color-warning-100);
   --token-error-content-default: var(--color-negative-700);
-
-  --token-waste-paper: var(--color-waste-blue);
-  --token-waste-plastic: var(--color-waste-yellow);
-  --token-waste-glass: var(--color-waste-green);
-  --token-waste-civicAmenitySite: var(--color-brand-700);
-  --token-waste-cookingOilsAndFats: var(--color-waste-red);
-  --token-waste-kitchen: var(--color-waste-brown);
-  --token-waste-organic: var(--color-waste-brown);
-  --token-waste-mixed: var(--color-grey-700);
-  --token-waste-cemetery: var(--color-waste-brown-dark);
-  --token-waste-christmasTrees: var(--color-waste-red-bratislava);
-
-  --token-badge-public: var(--color-badge-red);
-  --token-badge-firms: var(--color-badge-green);
-  --token-badge-institutions: var(--color-badge-blue);
 
   /* These variables are overridden in pages to get custom colors for each category */
   --color-category-800: var(--color-brand-800);

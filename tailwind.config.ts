@@ -56,11 +56,6 @@ export default {
         tertiary: 'rgb(var(--token-background-tertiary))',
         primaryInverted: 'rgb(var(--token-background-primary-inverted))',
         disabled: 'rgb(var(--token-background-disabled))',
-        tag: {
-          public: 'rgb(var(--token-badge-public))',
-          firms: 'rgb(var(--token-badge-firms))',
-          institutions: 'rgb(var(--token-badge-institutions))',
-        },
       },
       border: {
         default: 'rgb(var(--token-border-default))',
