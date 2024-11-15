@@ -3,7 +3,6 @@
     "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "composite": true, // Enforces certain constraints which make it possible for build tools to quickly determine if a project has been built yet.
     "allowJs": true, // Allow JavaScript files to be imported inside your project
     "allowUnreachableCode": false, // Forbid unreachable code in the codebase
     "noFallthroughCasesInSwitch": true, // Additional guards when using enums in switch
@@ -20,6 +19,6 @@
     "noEmit": true, // Disable emitting output files.
     "jsx": "react-jsx" // Specifies the JSX factory function for React.
   },
-  "include": ["src", "lib", "vite.config.ts", "package.json", "tailwind.config.ts"],
+  "include": ["src", "lib", "vite.config.ts", "package.json", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

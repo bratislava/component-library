@@ -6,30 +6,9 @@
 
 /* Docs: https://tailwindcss.com/docs/functions-and-directives */
 @layer base {
-  @font-face {
-    font-family: 'Frutiger';
-    font-weight: 300;
-    src: url('../../assets/fonts/FrutigerLTPro-Light.otf');
-  }
-  @font-face {
-    font-family: 'Frutiger';
-    font-weight: 400;
-    src: url('../../assets/fonts/FrutigerLTPro-Roman.otf');
-  }
-  @font-face {
-    font-family: 'Frutiger';
-    font-weight: 700;
-    src: url('../../assets/fonts/FrutigerLTPro-Bold.otf');
-  }
-  @font-face {
-    font-family: 'Frutiger';
-    font-weight: 800;
-    src: url('../../assets/fonts/FrutigerLTPro-Black.otf');
-  }
-
   body {
     @apply text-content-primary antialiased;
-    font-family: 'Frutiger', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 }
 
