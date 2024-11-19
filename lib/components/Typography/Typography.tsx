@@ -1,79 +1,94 @@
-import 'tailwindcss/tailwind.css'
+import { createElement, ElementType, forwardRef, ReactNode } from 'react'
 
-import cx from 'classnames'
-import { Children, HTMLAttributes } from 'react'
-import { twMerge } from 'tailwind-merge'
-
-import { typographyElementDefaultStyles, typographyFontWeightVariants } from './utils/constants'
+import cn from '../../tools/cn'
 import { normalizeSkText } from './utils/normalizeSkText'
 
-type SupportedFontWeightType = 'light' | 'normal' | 'medium' | 'semibold'
-type SupportedElementType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
-
-type SupportedParagraphSizeType = 'p-small' | 'p-large'
-type SupportedSpanSizeType = 'span-large'
-type SupportedHeadingSizeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'h1-hero' | 'h1-form'
+export type TypographyProps = {
+  children: ReactNode
+  as?: ElementType
+  className?: string
+  variant?:
+    | 'h1-hero'
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'p-default'
+    | 'p-large'
+    | 'p-small'
+    | 'p-default-bold'
+    | 'p-large-bold'
+    | 'p-small-bold'
+    | 'p-default-black'
+    | 'p-large-black'
+    | 'p-small-black'
+    | 'button-default'
+    | 'button-large'
+}
 
 /**
- * Props for the Typography component.
- *
- * For type "p", allow props for paragraph sizing, fontWeight and responsive boolean.
- * For type "h1 ... h6", only allow props for heading sizing.
- * For type "span", only allow props for span sizing.
- *
- * @template T - The supported element type ("p", "h1" ... "h6", "span").
+ * Figma: https://www.figma.com/file/2qF09hDT9QNcpdztVMNAY4/OLO-Web?node-id=39-2452&mode=dev
  */
-type TypographyProps<T extends SupportedElementType> = HTMLAttributes<HTMLElement> & {
-  type: T
-  size?: T extends 'p'
-    ? SupportedParagraphSizeType
-    : T extends 'span'
-    ? SupportedSpanSizeType
-    : SupportedHeadingSizeType
-  fontWeight?: T extends 'p' ? SupportedFontWeightType : never
-}
 
-// Design reference for Typography component: https://www.figma.com/file/ctDKMhAPIjLUVNNmq430D4/DS-ESBS%3A-Foundations?node-id=73%3A133&mode=dev
-export const Typography = <T extends SupportedElementType>({
-  type,
-  size,
-  children,
-  className,
-  fontWeight,
-  ...otherAttributes
-}: TypographyProps<T>) => {
-  const CustomElement = type as SupportedElementType
-  const usedFontWeight = fontWeight
-    ? typographyFontWeightVariants[fontWeight as SupportedFontWeightType]
-    : ''
-  const usedSize =
-    size && (size as SupportedHeadingSizeType | SupportedParagraphSizeType | SupportedSpanSizeType)
+const Typography = forwardRef<HTMLElement, TypographyProps>(
+  ({ variant = 'p-default', children, as, className, ...rest }, forwardedRef) => {
+    const variantElement = (
+      {
+        'h1-hero': 'h1',
+        h1: 'h1',
+        h2: 'h2',
+        h3: 'h3',
+        h4: 'h4',
+        h5: 'h5',
+        h6: 'h6',
+        'p-default': 'p',
+        'p-large': 'p',
+        'p-small': 'p',
+        'p-default-bold': 'p',
+        'p-large-bold': 'p',
+        'p-small-bold': 'p',
+        'p-default-black': 'p',
+        'p-large-black': 'p',
+        'p-small-black': 'p',
+        'button-default': 'span',
+        'button-large': 'span',
+      } as const
+    )[variant]
 
-  // Normalizing all children texts with provided utility from mestskakniznica
-  const normalizedChildren = Children?.map(children, (child) => {
-    if (typeof child === 'string') {
-      return normalizeSkText(child)
+    const classes = cn(
+      'whitespace-pre-wrap', // TODO revisit if we want to apply it on all text
+      'break-words', // TODO revisit if we want to apply it on all text
+      {
+        'text-size-h1-hero-r font-black lg:text-size-h1-hero': variant === 'h1-hero',
+        'text-size-h1-r font-black lg:text-size-h1': variant === 'h1',
+        'text-size-h2-r font-black lg:text-size-h2': variant === 'h2',
+        'text-size-h3-r font-black lg:text-size-h3': variant === 'h3',
+        'text-size-h4-r font-black lg:text-size-h4': variant === 'h4',
+        'text-size-h5-r font-black lg:text-size-h5': variant === 'h5',
+        'text-size-h6-r font-black lg:text-size-h6': variant === 'h6',
+        'text-size-p-default lg:text-size-p-large': variant.startsWith('p-large'),
+        'text-size-p-default lg:text-size-p-default': variant.startsWith('p-default'),
+        'text-size-p-small lg:text-size-p-small': variant.startsWith('p-small'),
+        'font-bold': variant.endsWith('-bold'),
+        'font-black': variant.endsWith('-black'),
+        'text-size-button-default font-bold': variant === 'button-default',
+        'text-size-button-large font-bold': variant === 'button-large',
+      },
+      className,
+    )
+
+    const childrenNormalised = typeof children === 'string' ? normalizeSkText(children) : children
+
+    const elementOptions = {
+      ...rest,
+      ref: forwardedRef,
+      className: classes,
     }
 
-    return child
-  })
-
-  return (
-    <CustomElement
-      className={cx(
-        twMerge(
-          usedSize
-            ? typographyElementDefaultStyles[usedSize]
-            : typographyElementDefaultStyles[type as SupportedElementType],
-          `[text-wrap:balance] ${usedFontWeight} font-sans`,
-        ),
-        className,
-      )}
-      {...otherAttributes}
-    >
-      {normalizedChildren}
-    </CustomElement>
-  )
-}
+    return createElement(as || variantElement, elementOptions, childrenNormalised)
+  },
+)
 
 export default Typography
