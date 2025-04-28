@@ -1,3 +1,4 @@
+import Link from '../lib/components/Typography/Link'
 import { Typography } from '../lib/main'
 import TypographyShowcase from './showcases/TypographyShowcase'
 
@@ -9,6 +10,8 @@ const App: React.FC = () => (
           Style guide
         </Typography>
       </div>
+
+      <Link href="/">Link test</Link>
 
       <TypographyShowcase />
     </div>
