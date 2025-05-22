@@ -1,9 +1,9 @@
-import { createElement, ElementType, forwardRef, ReactNode } from 'react'
+import { createElement, ElementType, forwardRef, HTMLAttributes, ReactNode } from 'react'
 
 import cn from '../../tools/cn'
 import { normalizeSkText } from './utils/normalizeSkText'
 
-export type TypographyProps = {
+export type TypographyProps = HTMLAttributes<HTMLElement> & {
   children: ReactNode
   as?: ElementType
   className?: string
