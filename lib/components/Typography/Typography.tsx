@@ -66,7 +66,7 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     const classes = cn(
       'whitespace-pre-wrap', // TODO revisit if we want to apply it on all text
-      'break-words', // TODO revisit if we want to apply it on all text
+      'wrap-break-words', // TODO revisit if we want to apply it on all text
       {
         'text-size-h1-hero-r lg:text-size-h1-hero': variant === 'h1-hero',
         'text-size-h1-r lg:text-size-h1': variant === 'h1',
@@ -81,8 +81,8 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
         'text-size-p-tiny-r lg:text-size-p-tiny': variant.startsWith('p-tiny'),
         'font-bold': variant.endsWith('-bold'),
         'font-black': variant.endsWith('-black'),
-        'text-size-button-default font-bold': variant === 'button-default',
-        'text-size-button-large font-bold': variant === 'button-large',
+        'text-size-button-default-r lg:text-size-button-default font-bold': variant === 'button-default',
+        'text-size-button-large-r lg:text-size-button-large font-bold': variant === 'button-large',
       },
       className,
     )
