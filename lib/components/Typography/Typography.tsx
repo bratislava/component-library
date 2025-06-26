@@ -66,7 +66,7 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     const classes = cn(
       'whitespace-pre-wrap', // TODO revisit if we want to apply it on all text
-      'break-words', // TODO revisit if we want to apply it on all text
+      'wrap-break-word', // TODO revisit if we want to apply it on all text
       {
         'text-size-h1-hero-r lg:text-size-h1-hero': variant === 'h1-hero',
         'text-size-h1-r lg:text-size-h1': variant === 'h1',
@@ -75,14 +75,14 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
         'text-size-h4-r lg:text-size-h4': variant === 'h4',
         'text-size-h5-r lg:text-size-h5': variant === 'h5',
         'text-size-h6-r lg:text-size-h6': variant === 'h6',
-        'text-size-p-default lg:text-size-p-large': variant.startsWith('p-large'),
-        'text-size-p-default lg:text-size-p-default': variant.startsWith('p-default'),
-        'text-size-p-small lg:text-size-p-small': variant.startsWith('p-small'),
-        'text-size-p-tiny lg:text-size-p-tiny': variant.startsWith('p-tiny'),
+        'text-size-p-large-r lg:text-size-p-large': variant.startsWith('p-large'),
+        'text-size-p-default-r lg:text-size-p-default': variant.startsWith('p-default'),
+        'text-size-p-small-r lg:text-size-p-small': variant.startsWith('p-small'),
+        'text-size-p-tiny-r lg:text-size-p-tiny': variant.startsWith('p-tiny'),
         'font-bold': variant.endsWith('-bold'),
         'font-black': variant.endsWith('-black'),
-        'text-size-button-default font-bold': variant === 'button-default',
-        'text-size-button-large font-bold': variant === 'button-large',
+        'text-size-button-large-r lg:text-size-button-large font-bold': variant === 'button-large',
+        'text-size-button-default-r lg:text-size-button-default font-bold': variant === 'button-default',
       },
       className,
     )
