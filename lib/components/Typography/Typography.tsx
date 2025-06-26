@@ -66,7 +66,7 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     const classes = cn(
       'whitespace-pre-wrap', // TODO revisit if we want to apply it on all text
-      'wrap-break-words', // TODO revisit if we want to apply it on all text
+      'wrap-break-word', // TODO revisit if we want to apply it on all text
       {
         'text-size-h1-hero-r lg:text-size-h1-hero': variant === 'h1-hero',
         'text-size-h1-r lg:text-size-h1': variant === 'h1',
