@@ -2,6 +2,7 @@ import { createElement, ElementType, forwardRef, HTMLAttributes, ReactNode } fro
 
 import cn from '../../tools/cn'
 import { normalizeSkText } from './utils/normalizeSkText'
+import slugify from '@sindresorhus/slugify'
 
 export type TypographyProps = HTMLAttributes<HTMLElement> & {
   children: ReactNode
@@ -87,12 +88,17 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
       className,
     )
 
+    const isHeading = /h\d.*/.test(as ? as.toString() : variant)
+    
+    const generatedId = children ? slugify(children.toString()) : ''
+
     const childrenNormalised = typeof children === 'string' ? normalizeSkText(children) : children
 
     const elementOptions = {
       ...rest,
       ref: forwardedRef,
       className: classes,
+      ...(isHeading && {id: rest.id ?? generatedId})
     }
 
     return createElement(as || variantElement, elementOptions, childrenNormalised)
