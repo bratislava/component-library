@@ -16,7 +16,13 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     rollupOptions: {
-      external: [...Object.keys(peerDependencies)],
+      external: (externalDependency) =>
+        Object.keys(peerDependencies).some(
+          (peerDependency) =>
+            // Exclude peerDependencies or their subpaths (e.g. react/jsx-runtime) from the build
+            externalDependency === peerDependency ||
+            externalDependency.startsWith(`${peerDependency}/`),
+        ),
       output: {
         assetFileNames: 'assets/[name][extname]',
         entryFileNames: '[name].js',
