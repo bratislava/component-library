@@ -2,6 +2,11 @@
 
 @theme static {
   --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-white: var(--color-grey-0);
+  --color-font: var(--color-content-passive-primary);
+  --color-font-contrast: var(--color-content-passive-inverted-primary);
 
   --color-grey-800: rgb(34, 31, 29); /*#221F1D*/
   --color-grey-700: rgb(45, 41, 38); /*#2D2926*/

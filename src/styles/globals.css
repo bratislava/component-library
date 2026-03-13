@@ -200,7 +200,7 @@
 
 @layer base {
   body {
-    @apply text-content-primary antialiased;
+    @apply text-font antialiased;
     font-family: 'Inter', sans-serif;
   }
 
