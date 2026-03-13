@@ -30,13 +30,12 @@
     "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
-    "next": ">=15",
+    "@tailwindcss/postcss": "^4.1.7",
     "@types/node": "^22.7.9",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@vitejs/plugin-react": "^4.3.3",
-    "@tailwindcss/postcss": "^4.1.7",
     "clsx": "^2.1.1",
     "eslint": "^8.57.1",
     "eslint-config-adjunct": "^4.12.2",
@@ -70,6 +69,7 @@
     "eslint-plugin-testing-library": "^6.2.0",
     "eslint-plugin-unicorn": "^50.0.1",
     "eslint-plugin-xss": "^0.1.12",
+    "next": ">=15",
     "postcss": "^8.5.0",
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
@@ -81,6 +81,7 @@
     "tailwindcss": "^4.1.7",
     "typescript": "^5.6.3",
     "vite": "^4.3.0",
-    "vite-plugin-dts": "^4.3.0"
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-svgr": "^4.5.0"
   }
 }
