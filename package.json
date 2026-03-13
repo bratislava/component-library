@@ -1,6 +1,7 @@
 {
   "name": "@bratislava/component-library",
   "version": "1.0.5",
+  "license": "EUPL-1.2",
   "main": "dist/main.js",
   "types": "dist/lib/main.d.ts",
   "type": "module",
