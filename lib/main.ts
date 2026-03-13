@@ -1,1 +1,2 @@
-export { default as Typography, type TypographyProps} from './components/Typography/Typography'
+
+export { default as Spinner } from './components/Spinner/Spinner'
