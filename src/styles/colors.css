@@ -1,25 +1,7 @@
 /* COLORS USED ONLY IN SHOWCASE PROJECT, NOT BUNDLED INTO LIBRARY */
 
 @theme static {
-  /* Bratislava main red */
-  --color-main-800: rgb(147, 37, 27); /*#93251B*/
-  --color-main-700: rgb(216, 55, 40); /*#D83728*/
-  --color-main-600: rgb(224, 95, 83); /*#E05F53*/
-  --color-main-500: rgb(238, 147, 139); /*#EE938B*/
-  --color-main-400: rgb(239, 175, 169); /*#EFAFA9*/
-  --color-main-300: rgb(243, 195, 191); /*#F3C3BF*/
-  --color-main-200: rgb(247, 215, 212); /*#F7D7D4*/
-  --color-main-100: rgb(251, 235, 234); /*#FBEBEA*/
-
-  /* Brand Color (OLO) */
-  --color-brand-800: rgb(202, 151, 44); /*#CA972C*/
-  --color-brand-700: rgb(241, 180, 52); /*#F1B434*/
-  --color-brand-600: rgb(244, 195, 93); /*#F4C35D*/
-  --color-brand-500: rgb(247, 210, 133); /*#F7D285*/
-  --color-brand-400: rgb(248, 217, 153); /*#F8D999*/
-  --color-brand-300: rgb(249, 225, 174); /*#F9E1AE*/
-  --color-brand-200: rgb(252, 240, 214); /*#FCF0D6*/
-  --color-brand-100: rgb(254, 249, 239); /*#FEF9EF*/
+  --color-transparent: transparent;
 
   --color-grey-800: rgb(34, 31, 29); /*#221F1D*/
   --color-grey-700: rgb(45, 41, 38); /*#2D2926*/
@@ -60,56 +42,12 @@
   --color-warning-200: rgb(249, 229, 205); /*#F9E5CD*/
   --color-warning-100: rgb(252, 242, 230); /*#FCF2E6*/
   --color-warning-50: rgb(253, 248, 242); /*#FDF8F2*/
-
-  --color-grey-transparent: transparent;
 }
 
 @theme {
   --color-white: var(--color-grey-0);
 
-  /* Old tokens - kept for backward compat, to be removed */
-
-  --color-background-primary: var(--color-grey-0);
-  --color-background-secondary: var(--color-brand-200);
-  --color-background-tertiary: var(--color-grey-100);
-  --color-background-primary-inverted: var(--color-grey-800);
-  --color-background-disabled: var(--color-grey-100);
-
-  --color-border-default: var(--color-grey-200);
-  --color-border-hover: var(--color-grey-300);
-  --color-border-dark: var(--color-grey-600);
-
-  --color-content-primary: var(--color-grey-800);
-  --color-content-secondary: var(--color-grey-700);
-  --color-content-tertiary: var(--color-grey-600);
-  --color-content-primary-inverted: var(--color-grey-0);
-  --color-content-secondary-inverted: var(--color-grey-200);
-  --color-content-tertiary-inverted: var(--color-grey-400);
-  --color-content-disabled: var(--color-grey-500);
-
-  --color-content-link-default: var(--color-grey-700);
-  --color-content-link-hover: var(--color-grey-600);
-  --color-content-link-pressed: var(--color-grey-800);
-
-  --color-action-content-default: var(--color-grey-700);
-  --color-action-content-hover: var(--color-grey-600);
-  --color-action-content-pressed: var(--color-grey-800);
-  --color-action-background-default: var(--color-brand-700);
-  --color-action-background-hover: var(--color-brand-600);
-  --color-action-background-pressed: var(--color-brand-800);
-  --color-action-soft-background-hover: var(--color-brand-200);
-  --color-action-soft-background-pressed: var(--color-brand-300);
-  --color-action-border-default: var(--color-brand-700);
-  --color-action-border-hover: var(--color-brand-600);
-  --color-action-border-pressed: var(--color-brand-800);
-
-  --color-success-content-default: var(--color-success-700);
-  --color-success-background-default: var(--color-success-700);
-  --color-warning-background-default: var(--color-warning-700);
-  --color-warning-soft-background-default: var(--color-warning-100);
-  --color-error-content-default: var(--color-negative-700);
-
-  /* New tokens - border */
+  /* Border */
 
   --color-border-error: var(--color-negative-700);
   --color-border-error-hover: var(--color-negative-600);
@@ -130,7 +68,7 @@
   --color-border-active-tertiary-hover: var(--color-grey-400);
   --color-border-active-tertiary-pressed: var(--color-grey-500);
 
-  /* New tokens - background */
+  /* Background */
 
   --color-background-error-default: var(--color-negative-700);
   --color-background-error-hover: var(--color-negative-600);
@@ -145,14 +83,14 @@
   --color-background-active-primary-inverted-default: var(--color-grey-0);
   --color-background-active-primary-inverted-hover: var(--color-grey-100);
   --color-background-active-primary-inverted-pressed: var(--color-grey-200);
-  --color-background-active-primary-soft-default: var(--color-grey-transparent);
+  --color-background-active-primary-soft-default: var(--color-transparent);
   --color-background-active-primary-soft-hover: var(--color-grey-100);
   --color-background-active-primary-soft-pressed: var(--color-grey-200);
-  --color-background-active-primary-soft-inverted-default: var(--color-grey-transparent);
+  --color-background-active-primary-soft-inverted-default: var(--color-transparent);
   --color-background-active-primary-soft-inverted-hover: var(--color-grey-600);
   --color-background-active-primary-soft-inverted-pressed: var(--color-grey-500);
 
-  /* New tokens - content */
+  /* Content */
 
   --color-content-error-default: var(--color-negative-700);
   --color-content-error-hover: var(--color-negative-600);
@@ -168,14 +106,4 @@
   --color-content-active-tertiary-default: var(--color-grey-700);
   --color-content-active-tertiary-hover: var(--color-grey-600);
   --color-content-active-tertiary-pressed: var(--color-grey-800);
-
-  /* These variables are overridden in pages to get custom colors for each category */
-  --color-category-800: var(--color-brand-800);
-  --color-category-700: var(--color-brand-700);
-  --color-category-600: var(--color-brand-600);
-  --color-category-500: var(--color-brand-500);
-  --color-category-400: var(--color-brand-400);
-  --color-category-300: var(--color-brand-300);
-  --color-category-200: var(--color-brand-200);
-  --color-category-100: var(--color-brand-100);
 }
