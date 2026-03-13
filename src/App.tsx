@@ -2,11 +2,11 @@ import { ReactElement, useState } from 'react'
 import { Key, Tab, TabList, TabPanel, Tabs } from 'react-aria-components'
 
 import { Typography } from '../lib/main'
-// import ButtonShowcase from './showcases/ButtonShowcase'
+import ButtonShowcase from './showcases/ButtonShowcase'
 import TypographyShowcase from './showcases/TypographyShowcase'
 
 const showcases = [
-  // { id: 'button', label: 'Button', component: <ButtonShowcase /> },
+  { id: 'button', label: 'Button', component: <ButtonShowcase /> },
   { id: 'typography', label: 'Typography', component: <TypographyShowcase /> },
 ] satisfies { id: string; label: string; component: ReactElement }[]
 
