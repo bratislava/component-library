@@ -10,8 +10,8 @@ export {
 } from './components/Button/Button'
 
 export {
-  ButtonProvider,
-  useButtonContext,
-  type ButtonProviderProps,
+  ComponentLibraryProvider,
+  useComponentLibraryContext,
+  type ComponentLibraryProviderProps,
   type LinkComponentProps,
-} from './components/Button/ButtonContextProvider'
+} from './components/providers/ComponentLibraryProvider'
