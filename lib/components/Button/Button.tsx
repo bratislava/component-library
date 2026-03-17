@@ -10,7 +10,7 @@ import Spinner from '../Spinner/Spinner'
 
 /**
  * Both bratislava.sk and konto.bratislava.sk consume this component.
- * Each app provides its own LinkComponent (e.g. MLink wrapping next/link)
+ * Each app provides its own linkComponent (e.g. MLink wrapping next/link)
  * via the context provider in _app.tsx.
  */
 
@@ -97,8 +97,8 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
-    const { LinkComponent } = useComponentLibraryContext()
-    const Link = LinkComponent || NextLink
+    const { linkComponent } = useComponentLibraryContext()
+    const Link = linkComponent || NextLink
 
     const isLoadingOrDisabled = isLoading || isDisabled
 

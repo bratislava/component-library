@@ -10,22 +10,22 @@ export type LinkComponentProps = {
 }
 
 type ComponentLibraryContextValue = {
-  LinkComponent?: ComponentType<LinkComponentProps>
+  linkComponent?: ComponentType<LinkComponentProps>
 }
 
 const ComponentLibraryContext = createContext<ComponentLibraryContextValue>({})
 
 export type ComponentLibraryProviderProps = PropsWithChildren<{
   /** Custom link component (e.g. Next.js Link). Used by Button and other components. */
-  LinkComponent?: ComponentType<LinkComponentProps>
+  linkComponent?: ComponentType<LinkComponentProps>
 }>
 
 export const ComponentLibraryProvider = ({
-  LinkComponent,
+  linkComponent,
   children,
 }: ComponentLibraryProviderProps) => {
   const value: ComponentLibraryContextValue = {
-    LinkComponent,
+    linkComponent,
   }
 
   return (
