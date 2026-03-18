@@ -1,10 +1,10 @@
-import { default as NextLink, type LinkProps } from 'next/link'
+import { type LinkProps } from 'next/link'
 import { forwardRef, PropsWithChildren, ReactNode, Ref } from 'react'
 import { AriaButtonProps } from 'react-aria'
 import { Button as RACButton, ButtonProps as RACButtonProps } from 'react-aria-components'
 
-import cn from '../../tools/cn'
 import { ArrowDownIcon, ArrowRightIcon, ExportIcon } from '../../assets/icons'
+import cn from '../../tools/cn'
 import { useComponentLibraryContext } from '../providers/ComponentLibraryProvider'
 import Spinner from '../Spinner/Spinner'
 
@@ -98,7 +98,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const { linkComponent } = useComponentLibraryContext()
-    const Link = linkComponent || NextLink
+    const Link = linkComponent || 'a'
 
     const isLoadingOrDisabled = isLoading || isDisabled
 
