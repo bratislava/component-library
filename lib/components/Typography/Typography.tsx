@@ -82,7 +82,8 @@ const Typography = forwardRef<HTMLElement, TypographyProps>(
         'font-bold': variant.endsWith('-bold'),
         'font-black': variant.endsWith('-black'),
         'text-size-button-large-r lg:text-size-button-large font-bold': variant === 'button-large',
-        'text-size-button-default-r lg:text-size-button-default font-bold': variant === 'button-default',
+        'text-size-button-default-r lg:text-size-button-default font-bold':
+          variant === 'button-default',
       },
       className,
     )
