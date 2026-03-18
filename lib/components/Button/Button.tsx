@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import { type LinkProps } from 'next/link'
 import { forwardRef, PropsWithChildren, ReactNode, Ref } from 'react'
 import { AriaButtonProps } from 'react-aria'
@@ -96,6 +97,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
       ...rest
     },
     ref,
+    // eslint-disable-next-line sonarjs/cognitive-complexity
   ) => {
     const { linkComponent } = useComponentLibraryContext()
     const Link = linkComponent || 'a'

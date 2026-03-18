@@ -1,3 +1,4 @@
+/* eslint-disable pii/no-ip */
 import React from 'react'
 
 import { Button, ButtonProps, Typography } from '../../lib/main'
@@ -178,10 +179,12 @@ const ButtonShowcase: React.FC = () => (
           })}
         >
           {basicButtonExamples['size-default'].map((buttonExample, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <StackableButton key={index} variant={variant} buttonExample={buttonExample} />
           ))}
           <div className="w-full" aria-hidden />
           {basicButtonExamples['size-small'].map((buttonExample, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <StackableButton key={index} variant={variant} buttonExample={buttonExample} />
           ))}
         </Stack>
