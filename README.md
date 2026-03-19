@@ -59,7 +59,7 @@ To import our published library into dependent project you can use:
 yalc link @bratislava/component-library
 ```
 
-Now you can use the imported library in your code as such: 
+Now you can use the imported library in your code as such:
 
 ```
 import { Input, Button } from '@bratislava/component-library'
@@ -91,31 +91,27 @@ We want to exclude `/src` from building, because its use is only for local dev. 
 tsc --p ./tsconfig-build.json && vite build
 ```
 
-## `Using ComponentLibraryEnvironmentContext for native Next components`
+## Using `ComponentLibraryProvider` (Next.js `Link`)
 
-For harnessing functionality of Next native components along with functionalities of components of this library, you need to import `ComponentLibraryEnvironmentContext` from '@bratislava/component-library'. It exposes provider. 
+Components such as **`Button`** with an `href` read a link implementation from context. Wrap the app with **`ComponentLibraryProvider`** and pass a suitable Link component into the **`linkComponent`** property.
 
-1. create wrapper for next/link
+### Example: **bratislava.sk**
 
-  Example:
-  ```
-  const LinkWrapper = ({
-    href,
-    children
-  }: {
-    href: string;
-    children: React.ReactNode
-  }) => {
-    return <Link href={href}>{children}</Link>
-  }
-   ```  
-2. Wrap consuming app in this provider f.e. in `index.tsx` and pass LinkWrapper as `value` in `ComponentLibraryEnvironmentContext.Provider`
- ```
-        <ComponentLibraryEnvironmentContext.Provider value={{Link: LinkWrapper}}>
-            <PageLayout>         
-              <HomepageContent />
-            </PageLayout>
-        </ComponentLibraryEnvironmentContext.Provider>
- ```       
-3. This will provide next/link context for `AriaAnchor` component from library, when it's imported and used inside of components wrapped in Provider
-   <AriaAnchor href='/example' >Go to example</AriaAnchor>
+```tsx
+import { ComponentLibraryProvider } from '@bratislava/component-library'
+import MLink from '@/src/components/common/MLink/MLink'
+
+// Inside MyApp, after other providers:
+;<BAI18nProvider>
+  <ComponentLibraryProvider linkComponent={MLink}>
+    <OverlayProvider>
+      <NavMenuContextProvider>
+        <div id="root">
+          <Component {...pageProps} />
+        </div>
+        {/* … */}
+      </NavMenuContextProvider>
+    </OverlayProvider>
+  </ComponentLibraryProvider>
+</BAI18nProvider>
+```

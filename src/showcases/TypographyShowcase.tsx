@@ -14,18 +14,22 @@ import TypographyParagraphs from './TypographyParagraphs'
  * @component
  */
 const TypographyShowcase: React.FC = () => (
-  <>
-    <Typography variant="h1">Typography component</Typography>
+  <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-2">
+      <Typography variant="h3">Headings</Typography>
+      <TypographyHeadings />
+    </div>
 
-    <Typography variant="h2">Headings</Typography>
-    <TypographyHeadings />
+    <div className="flex flex-col gap-2">
+      <Typography variant="h3">Paragraphs</Typography>
+      <TypographyParagraphs />
+    </div>
 
-    <Typography variant="h2">Paragraphs</Typography>
-    <TypographyParagraphs />
-
-    <Typography variant="h2">Buttons</Typography>
-    <TypographyButtons />
-  </>
+    <div className="flex flex-col gap-2">
+      <Typography variant="h3">Buttons</Typography>
+      <TypographyButtons />
+    </div>
+  </div>
 )
 
 export default TypographyShowcase

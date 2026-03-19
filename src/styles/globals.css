@@ -1,26 +1,229 @@
+@import 'tailwindcss';
 @import './colors.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+@source '../**/*.{js,ts,jsx,tsx}';
+@source '../../lib/**/*.{js,ts,jsx,tsx}';
 
-/* Docs: https://tailwindcss.com/docs/functions-and-directives */
+@theme {
+  /* Font weight override — the library uses font-black as 800, not the default 900 */
+  --font-weight-black: 800;
+
+  /* TYPOGRAPHY — headings */
+
+  --text-h1-hero: 3.5rem; /* 56px */
+  --leading-h1-hero: 4rem; /* 64px */
+  --text-h1-hero-r: 2rem; /* 32px */
+  --leading-h1-hero-r: 2.5rem; /* 40px */
+
+  --text-h1: 2.5rem; /* 40px */
+  --leading-h1: 3rem; /* 48px */
+  --text-h1-r: 1.75rem; /* 28px */
+  --leading-h1-r: 2.25rem; /* 36px */
+
+  --text-h2: 2rem; /* 32px */
+  --leading-h2: 2.5rem; /* 40px */
+  --text-h2-r: 1.5rem; /* 24px */
+  --leading-h2-r: 2rem; /* 32px */
+
+  --text-h3: 1.75rem; /* 28px */
+  --leading-h3: 2.25rem; /* 36px */
+  --text-h3-r: 1.25rem; /* 20px */
+  --leading-h3-r: 1.75rem; /* 28px */
+
+  --text-h4: 1.5rem; /* 24px */
+  --leading-h4: 2rem; /* 32px */
+  --text-h4-r: 1.125rem; /* 18px */
+  --leading-h4-r: 1.625rem; /* 26px */
+
+  --text-h5: 1.25rem; /* 20px */
+  --leading-h5: 1.75rem; /* 28px */
+  --text-h5-r: 1rem; /* 16px */
+  --leading-h5-r: 1.5rem; /* 24px */
+
+  --text-h6: 1rem; /* 16px */
+  --leading-h6: 1.5rem; /* 24px */
+  --text-h6-r: 1rem; /* 16px */
+  --leading-h6-r: 1.5rem; /* 24px */
+
+  /* TYPOGRAPHY — paragraphs */
+
+  --text-p-large: 1.25rem; /* 20px */
+  --leading-p-large: 1.75rem; /* 28px */
+  --text-p-large-r: 1.125rem; /* 18px */
+  --leading-p-large-r: 1.75rem; /* 28px */
+
+  --text-p-default: 1.125rem; /* 18px */
+  --leading-p-default: 1.75rem; /* 28px */
+  --text-p-default-r: 1rem; /* 16px */
+  --leading-p-default-r: 1.5rem; /* 24px */
+
+  --text-p-small: 1rem; /* 16px */
+  --leading-p-small: 1.5rem; /* 24px */
+  --text-p-small-r: 1rem; /* 16px */
+  --leading-p-small-r: 1.5rem; /* 24px */
+
+  --text-p-tiny: 0.875rem; /* 14px */
+  --leading-p-tiny: 1.25rem; /* 20px */
+  --text-p-tiny-r: 0.875rem; /* 14px */
+  --leading-p-tiny-r: 1.25rem; /* 20px */
+
+  /* TYPOGRAPHY — buttons */
+
+  --text-button-large: 1rem; /* 16px */
+  --leading-button-large: 1.5rem; /* 24px */
+  --text-button-large-r: 1rem; /* 16px */
+  --leading-button-large-r: 1.5rem; /* 24px */
+
+  --text-button-default: 0.875rem; /* 14px */
+  --leading-button-default: 1.5rem; /* 24px */
+  --text-button-default-r: 0.875rem; /* 14px */
+  --leading-button-default-r: 1.5rem; /* 24px */
+}
+
+/* UTILITIES — text-size composites (font-size + line-height) */
+
+@utility text-size-h1-hero {
+  @apply text-h1-hero leading-h1-hero;
+}
+
+@utility text-size-h1-hero-r {
+  @apply text-h1-hero-r leading-h1-hero-r;
+}
+
+@utility text-size-h1 {
+  @apply text-h1 leading-h1;
+}
+
+@utility text-size-h1-r {
+  @apply text-h1-r leading-h1-r;
+}
+
+@utility text-size-h2 {
+  @apply text-h2 leading-h2;
+}
+
+@utility text-size-h2-r {
+  @apply text-h2-r leading-h2-r;
+}
+
+@utility text-size-h3 {
+  @apply text-h3 leading-h3;
+}
+
+@utility text-size-h3-r {
+  @apply text-h3-r leading-h3-r;
+}
+
+@utility text-size-h4 {
+  @apply text-h4 leading-h4;
+}
+
+@utility text-size-h4-r {
+  @apply text-h4-r leading-h4-r;
+}
+
+@utility text-size-h5 {
+  @apply text-h5 leading-h5;
+}
+
+@utility text-size-h5-r {
+  @apply text-h5-r leading-h5-r;
+}
+
+@utility text-size-h6 {
+  @apply text-h6 leading-h6;
+}
+
+@utility text-size-h6-r {
+  @apply text-h6-r leading-h6-r;
+}
+
+@utility text-size-p-large {
+  @apply text-p-large leading-p-large;
+}
+
+@utility text-size-p-large-r {
+  @apply text-p-large-r leading-p-large-r;
+}
+
+@utility text-size-p-default {
+  @apply text-p-default leading-p-default;
+}
+
+@utility text-size-p-default-r {
+  @apply text-p-default-r leading-p-default-r;
+}
+
+@utility text-size-p-small {
+  @apply text-p-small leading-p-small;
+}
+
+@utility text-size-p-small-r {
+  @apply text-p-small-r leading-p-small-r;
+}
+
+@utility text-size-p-tiny {
+  @apply text-p-tiny leading-p-tiny;
+}
+
+@utility text-size-p-tiny-r {
+  @apply text-p-tiny-r leading-p-tiny-r;
+}
+
+@utility text-size-button-large {
+  @apply text-button-large leading-button-large;
+}
+
+@utility text-size-button-large-r {
+  @apply text-button-large-r leading-button-large-r;
+}
+
+@utility text-size-button-default {
+  @apply text-button-default leading-button-default;
+}
+
+@utility text-size-button-default-r {
+  @apply text-button-default-r leading-button-default-r;
+}
+
+/* UTILITIES — other */
+
+@utility negative-x-spacing {
+  @apply -mx-4 px-4;
+}
+
+@utility text-button {
+  @apply text-size-button-default lg:text-size-button-large;
+}
+
+/* BASE */
+
 @layer base {
   body {
-    @apply text-content-primary antialiased;
+    @apply text-font antialiased;
     font-family: 'Inter', sans-serif;
+  }
+
+  /*
+    The default border color changed to `currentColor` in Tailwind CSS v4.
+    Restore the v3 behavior so existing components keep their appearance.
+  */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border-default, currentColor);
+  }
+
+  /* https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
   }
 }
 
 @layer components {
-  .negative-x-spacing {
-    @apply -mx-4 px-4;
-  }
-
-  .text-button {
-    @apply text-size-button-default lg:text-size-button-large;
-  }
-
   .chevron-down-animate {
     @apply transform transition duration-300 ease-in-out;
   }
@@ -31,23 +234,20 @@
 }
 
 /* Remove arrows from input type='number' */
-/* Chrome, Safari, Edge, Opera */
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-/* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
-/* Remove native Safari arrows in accordions  */
+/* Remove native Safari arrows in accordions */
 details > summary {
   list-style: none;
 }
-
 details > summary::-webkit-details-marker {
   display: none;
 }

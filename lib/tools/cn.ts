@@ -2,12 +2,38 @@
 import { type ClassValue, clsx } from 'clsx'
 import { extendTailwindMerge } from 'tailwind-merge'
 
-import tailwindConfig from '../../tailwind.config'
-
 const twMerge = extendTailwindMerge({
   extend: {
     classGroups: {
-      'font-size': Object.keys(tailwindConfig.theme.fontSize).map((key) => `text-${key}`),
+      // Keep in sync with @utility definitions in globals.css
+      'font-size': [
+        'text-size-h1-hero',
+        'text-size-h1-hero-r',
+        'text-size-h1',
+        'text-size-h1-r',
+        'text-size-h2',
+        'text-size-h2-r',
+        'text-size-h3',
+        'text-size-h3-r',
+        'text-size-h4',
+        'text-size-h4-r',
+        'text-size-h5',
+        'text-size-h5-r',
+        'text-size-h6',
+        'text-size-h6-r',
+        'text-size-p-large',
+        'text-size-p-large-r',
+        'text-size-p-default',
+        'text-size-p-default-r',
+        'text-size-p-small',
+        'text-size-p-small-r',
+        'text-size-p-tiny',
+        'text-size-p-tiny-r',
+        'text-size-button-large',
+        'text-size-button-large-r',
+        'text-size-button-default',
+        'text-size-button-default-r',
+      ],
     },
   },
 })

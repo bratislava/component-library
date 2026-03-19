@@ -1,8 +1,9 @@
 {
   "name": "@bratislava/component-library",
-  "version": "1.0.5",
+  "version": "1.1.1",
+  "license": "EUPL-1.2",
   "main": "dist/main.js",
-  "types": "dist/lib/main.d.ts",
+  "types": "dist/main.d.ts",
   "type": "module",
   "files": [
     "dist"
@@ -18,20 +19,24 @@
     "prettier:check": "prettier --check ."
   },
   "dependencies": {
-    "react-aria": "^3.29.0",
-    "react-aria-components": "^1.0.0-beta.2"
+    "@sindresorhus/slugify": "^2.2.1"
   },
   "peerDependencies": {
-    "react": "^18.3.1 || ^19.1.0",
-    "react-dom": "^18.3.1 || ^19.1.0"
+    "clsx": "^2.1.1",
+    "next": ">=15.5.0",
+    "react": "^18.3.1 || ^19.2.0",
+    "react-aria": "^3.46.0",
+    "react-aria-components": "^1.15.0",
+    "react-dom": "^18.3.1 || ^19.2.0",
+    "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
     "@types/node": "^22.7.9",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@vitejs/plugin-react": "^4.3.3",
-    "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "eslint": "^8.57.1",
     "eslint-config-adjunct": "^4.12.2",
@@ -62,21 +67,22 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-sonarjs": "^0.23.0",
     "eslint-plugin-switch-case": "^1.1.2",
-    "eslint-plugin-tailwindcss": "3.17.4",
     "eslint-plugin-testing-library": "^6.2.0",
     "eslint-plugin-unicorn": "^50.0.1",
     "eslint-plugin-xss": "^0.1.12",
-    "postcss": "^8.4.31",
+    "next": ">=15",
+    "postcss": "^8.5.0",
     "prettier": "^3.2.4",
-    "prettier-plugin-tailwindcss": "0.6.6",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "react": "^18.3.1",
     "react-aria": "^3.35.1",
     "react-aria-components": "^1.4.1",
     "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.5.4",
-    "tailwindcss": "^3.4.14",
+    "tailwind-merge": "^3.0.0",
+    "tailwindcss": "^4.1.7",
     "typescript": "^5.6.3",
     "vite": "^4.3.0",
-    "vite-plugin-dts": "^4.3.0"
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-svgr": "^4.5.0"
   }
 }
