@@ -71,7 +71,7 @@
     "eslint-plugin-testing-library": "6.2.0",
     "eslint-plugin-unicorn": "50.0.1",
     "eslint-plugin-xss": "0.1.12",
-    "next": "15.5.0",
+    "next": ">=15.5.0",
     "postcss": "8.5.0",
     "prettier": "3.2.4",
     "prettier-plugin-tailwindcss": "0.7.2",
