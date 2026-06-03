@@ -279,6 +279,9 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
         ref={ref as Ref<HTMLButtonElement>}
         isDisabled={isLoadingOrDisabled}
         className={styles}
+        // Default slot to null so RAC doesn't inherit a slot from an ancestor context,
+        // which would throw error if no matching slot name is set.
+        slot={('slot' in rest ? rest.slot : undefined) ?? null}
         {...rest}
       >
         {!isLoading && startIcon}
@@ -288,7 +291,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
             <Spinner size="sm" />
           </>
         ) : (
-          (icon ?? children)
+          icon ?? children
         )}
         {!isLoading && endIcon}
       </RACButton>
