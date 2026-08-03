@@ -151,6 +151,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
 
               // link styles
               'font-medium underline underline-offset-2 max-lg:gap-1': isLinkVariant,
+              'text-center': !isLinkVariant,
 
               // disabled
               'opacity-50': isDisabled,
@@ -291,7 +292,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
             <Spinner size="sm" />
           </>
         ) : (
-          icon ?? children
+          (icon ?? children)
         )}
         {!isLoading && endIcon}
       </RACButton>
