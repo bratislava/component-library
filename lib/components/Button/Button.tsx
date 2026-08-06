@@ -131,9 +131,18 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
       variant === 'unstyled'
         ? ''
         : cn(
-            'inline-flex h-auto items-center justify-center gap-2 transition',
+            'h-auto transition',
 
+            // flexbox - deals with alignment of Button's content and icons
+            'inline-flex items-center justify-center gap-2',
             {
+              // text alignment
+              // - if href is not present, <button> is rendered which defaults to text center
+              // - if href is present, <a> is rendered which defaults to text left
+              // - however, we want to base the alignment on the variant
+              'text-left': isLinkVariant,
+              'text-center': !isLinkVariant,
+
               // text size and weight
               'font-semibold': true,
               'text-size-button-default lg:text-size-button-large': size === 'responsive',

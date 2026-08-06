@@ -239,6 +239,71 @@ const ButtonShowcase: React.FC = () => (
         </Stack>
       </div>
     ))}
+
+    {(['link', 'outline'] as const).map((variant) => {
+      return (
+        <div className="flex flex-col gap-2">
+          <Typography variant="h4">variant="{variant}" (in flex-col)</Typography>
+          <Stack>
+            <div className="flex w-full justify-between gap-4 *:w-1/2">
+              <div className="flex flex-col gap-2 rounded-lg border p-2">
+                {Array.from({ length: 3 }).map((_, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      variant={variant}
+                      startIcon={index === 0 ? <SearchIcon /> : undefined}
+                      endIcon={index === 0 ? <EditIcon /> : undefined}
+                      onPress={() => {}}
+                    >
+                      {index > 1
+                        ? 'Button with onPress (renders <button>) and a lot lot lot lot lot lot of words'
+                        : 'Button with onPress (renders <button>)'}
+                    </Button>
+                  )
+                })}
+              </div>
+              <div className="flex flex-col gap-3 rounded-lg border p-3">
+                {Array.from({ length: 3 }).map((_, index) => {
+                  return (
+                    <Button key={index} variant={variant} href="#" onPress={() => {}}>
+                      {index > 1
+                        ? 'Button with href (renders <a>) and a lot lot lot lot lot lot of words'
+                        : 'Button with href (renders <a>)'}
+                    </Button>
+                  )
+                })}
+              </div>
+            </div>
+          </Stack>
+        </div>
+      )
+    })}
+
+    {(['link', 'outline'] as const).map((variant) => {
+      return (
+        <div className="flex flex-col gap-2">
+          <Typography variant="h4">{`Multiline (variant="${variant}" with forced width)`}</Typography>
+          <Stack className="items-center gap-10">
+            <Button
+              variant={variant}
+              startIcon={<SearchIcon />}
+              endIcon={<EditIcon />}
+              onPress={() => {}}
+              className="w-45"
+            >
+              Button with onPress and a lot of words
+            </Button>
+            <Button variant={variant} onPress={() => {}} className="w-45">
+              Button with onPress and a lot of words
+            </Button>
+            <Button variant={variant} href="#" className="w-45">
+              Button with href and a lot of words
+            </Button>
+          </Stack>
+        </div>
+      )
+    })}
   </div>
 )
 
